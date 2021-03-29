@@ -140,19 +140,22 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJButton.setEnabled(false);
         logoutJButton.setEnabled(true);
         userNameJTextField.setEnabled(false);
-        passwordField.setEnabled(false); 
+        passwordField.setEnabled(false);         
+        userNameJTextField.setText("");
+        passwordField.setText("");
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
-        logoutJButton.setEnabled(false);
-        userNameJTextField.setEnabled(true);
-        passwordField.setEnabled(true);
-        loginJButton.setEnabled(true);
-
+      
+        loginJButton.setEnabled(false);
+        logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);        
         userNameJTextField.setText("");
         passwordField.setText("");
 
         container.removeAll();
+        
         JPanel blankJP = new JPanel();
         container.add("blank", blankJP);
         CardLayout crdLyt = (CardLayout) container.getLayout();
@@ -190,7 +193,11 @@ public class MainJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJFrame().setVisible(true);
+                MainJFrame mJFrame = new MainJFrame();
+                mJFrame.setVisible(true);
+               // mJFrame.dispose();
+              //  mJFrame.setSize(1300, 700);
+               //admin   mJFrame.setLocationRelativeTo(null);
             }
         });
     }
