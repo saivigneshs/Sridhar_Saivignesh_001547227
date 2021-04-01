@@ -4,9 +4,12 @@
  */
 package Business.Role;
 
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
+import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -39,7 +42,10 @@ public abstract class Role {
     
     public abstract JPanel createWorkArea(JPanel userProcessContainer, 
             UserAccount account,  
-            EcoSystem business);
+            EcoSystem business,
+            CustomerDirectory customerDirectory,
+            RestaurantDirectory restaurantDirectory,
+            DeliveryManDirectory deliveryManDirectory);
 
     @Override
     public String toString() {

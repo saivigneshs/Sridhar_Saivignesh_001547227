@@ -18,48 +18,53 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="lblCustName" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblCustID" max="32767" attributes="0"/>
+                          <Component id="lblCustName" alignment="1" max="32767" attributes="0"/>
                           <Component id="lblCustContact" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCustEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCustAddr" alignment="1" max="32767" attributes="0"/>
+                          <Component id="lblCustAddr" alignment="0" max="32767" attributes="0"/>
                           <Component id="lblCustZip" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
                               <Component id="txtCustAddr" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtCustContact" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtCustEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCustZip" alignment="1" pref="127" max="32767" attributes="0"/>
+                              <Component id="txtCustZip" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtCustName" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
+                          <Component id="txtCustID" min="-2" pref="127" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblCustPhoto" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="lblCustPhoto" min="-2" pref="102" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="btnCustPhotoUpload" min="-2" pref="67" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                       <Component id="lblViewUpdateCust" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnEnableUpdate" max="32767" attributes="0"/>
                           <Component id="btnSaveChanges" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="btnCustPhotoUpload" min="-2" pref="67" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace pref="72" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,11 +72,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="lblViewUpdateCust" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblCustPhoto" min="-2" pref="129" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblViewUpdateCust" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtCustID" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCustID" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtCustName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCustName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -97,17 +106,21 @@
                           <Component id="txtCustZip" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblCustPhoto" min="-2" pref="129" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnCustPhotoUpload" min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnCustPhotoUpload" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="btnEnableUpdate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnBack1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSaveChanges" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBack1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,7 +173,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustEmail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Email ID:"/>
+        <Property name="text" type="java.lang.String" value="Email ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustEmail">
@@ -172,26 +185,26 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustAddr">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Street Address :"/>
+        <Property name="text" type="java.lang.String" value="Street Address :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Full Name :"/>
+        <Property name="text" type="java.lang.String" value="Full Name :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustAddr">
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustZip">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Zip Code :"/>
+        <Property name="text" type="java.lang.String" value="Zip Code :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustZip">
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustContact">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Contact No :"/>
+        <Property name="text" type="java.lang.String" value="Contact No :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCustName">
@@ -216,6 +229,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Enable Update"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnableUpdateActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCustID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Customer ID :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCustID">
     </Component>
   </SubComponents>
 </Form>

@@ -18,14 +18,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class UpdateCustomersJPanel extends javax.swing.JPanel {
+public class ManageCustomersJPanel extends javax.swing.JPanel {
     public CustomerDirectory custDirectory;
     public JPanel container;
     public EcoSystem system;
     /**
      * Creates new form UpdateCustomersJPanel
      */
-    public UpdateCustomersJPanel(JPanel userProcessContainer, EcoSystem system, CustomerDirectory custDirectory) {
+    public ManageCustomersJPanel(JPanel userProcessContainer, EcoSystem system, CustomerDirectory custDirectory) {
         initComponents();
         this.system = system;
         this.custDirectory = custDirectory;
@@ -35,7 +35,6 @@ public class UpdateCustomersJPanel extends javax.swing.JPanel {
     
     public void populateCustomerListTable() {
         DefaultTableModel model = (DefaultTableModel) JTblCustomers.getModel();
-
         model.setRowCount(0);
         for (UserAccount userAcc : system.getUserAccountDirectory().getUserAccountList()) {
             for (Customer customer : custDirectory.getCustDir()) {
@@ -173,12 +172,12 @@ public class UpdateCustomersJPanel extends javax.swing.JPanel {
             if (selectedRow >= 0) {
                 CardLayout layout = (CardLayout) container.getLayout();
                 Customer customer = custDirectory.getCustomerId(selectedRow);
-                ViewCustomersJPanel viewCustomersJPanel = new ViewCustomersJPanel(system, container, customer, custDirectory);
-                container.add(viewCustomersJPanel);
-                layout.next(container);
+                ViewUpdateCustomerJPanel viewUpdateCustomerJPanel = new ViewUpdateCustomerJPanel(system, container, customer, custDirectory);
+                container.add(viewUpdateCustomerJPanel);
+                layout.next(container); 
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Select a Row to continue.");
         }
     }//GEN-LAST:event_btnViewCustActionPerformed
 
@@ -196,7 +195,7 @@ public class UpdateCustomersJPanel extends javax.swing.JPanel {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Select a Row to continue.");
         }
     }//GEN-LAST:event_btnDelCustActionPerformed
 

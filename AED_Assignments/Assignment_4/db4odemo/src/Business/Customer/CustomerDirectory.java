@@ -81,11 +81,13 @@ public class CustomerDirectory {
     public void updateCustomer(String custNo, String custName, String custContact, String custAddr,String custZipCode,String custEmail){
         for(Customer customer: custDir){
             if(customer.getCustID().equalsIgnoreCase(custNo)){
+                
                 customer.setCustName(custName);
                 customer.setCustEmail(custEmail);
                 customer.setCustContact(custContact);
                 customer.setCustAddr(custAddr);
-                customer.setCustZipCode(custZipCode);   
+                customer.setCustZipCode(custZipCode); 
+                break;
             }
         }
     }

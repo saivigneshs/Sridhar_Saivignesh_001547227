@@ -4,9 +4,12 @@
  */
 package Business.Role;
 
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
+import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import userinterface.CustomerRole.CustomerAreaJPanel;
 import javax.swing.JPanel;
@@ -18,7 +21,7 @@ import javax.swing.JPanel;
 public class CustomerRole extends Role{
 
     
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business,  CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory) {
         return new CustomerAreaJPanel(userProcessContainer, account);
     }
     

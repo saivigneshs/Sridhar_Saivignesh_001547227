@@ -4,10 +4,13 @@
  */
 package userinterface;
 
+import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
+import Business.DeliveryMan.DeliveryManDirectory;
 
 import Business.Organization;
+import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -22,12 +25,37 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    private EcoSystem system;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private final EcoSystem system;
+    private final DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
+    private final CustomerDirectory customerDirectory;
+    private final RestaurantDirectory restaurantDirectory;
+    private final DeliveryManDirectory deliveryManDirectory;
+    
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        
+        if (system.getCustomerDirectory() == null) {
+            this.customerDirectory = new CustomerDirectory();
+        } else {
+            this.customerDirectory = system.getCustomerDirectory();
+        }
+        
+        if (system.getRestaurantDirectory() == null) {
+            this.restaurantDirectory = new RestaurantDirectory();
+
+        } else {
+            this.restaurantDirectory = system.getRestaurantDirectory();
+        }
+        
+        if (system.getDeliveryManDirectory() == null) {
+            deliveryManDirectory = new DeliveryManDirectory();
+
+        } else {
+            this.deliveryManDirectory = system.getDeliveryManDirectory();
+        }
+        
         this.setSize(1680, 1050);
     }
 
@@ -134,7 +162,7 @@ public class MainJFrame extends javax.swing.JFrame {
            
         }else{
             CardLayout layout = (CardLayout)container.getLayout();
-            container.add("workarea",userAcc.getRole().createWorkArea(container, userAcc, system));
+            container.add("workarea",userAcc.getRole().createWorkArea(container, userAcc, system, customerDirectory, restaurantDirectory, deliveryManDirectory));
             layout.next(container);
         }
         loginJButton.setEnabled(false);
@@ -155,9 +183,8 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField.setText("");
 
         container.removeAll();
+       
         
-        JPanel blankJP = new JPanel();
-        container.add("blank", blankJP);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);

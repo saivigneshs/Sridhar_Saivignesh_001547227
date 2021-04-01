@@ -169,6 +169,10 @@
     <Component class="javax.swing.JTextField" name="txtCustEmail">
     </Component>
     <Component class="javax.swing.JProgressBar" name="pbCustPassStr">
+      <Properties>
+        <Property name="maximum" type="int" value="30"/>
+        <Property name="minimum" type="int" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="pbCustPassStrStateChanged"/>
       </Events>

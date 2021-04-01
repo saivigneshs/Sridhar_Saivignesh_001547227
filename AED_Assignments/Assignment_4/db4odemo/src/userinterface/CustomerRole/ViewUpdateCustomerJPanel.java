@@ -5,6 +5,11 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
+import Business.Customer.CustomerDirectory;
+import Business.EcoSystem;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -15,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -25,10 +31,44 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewCustomerJPanel
      */
-    public ViewUpdateCustomerJPanel() {
+    
+    public CustomerDirectory customerDirectory;
+    public JPanel container;
+    public Customer customer;
+    private final EcoSystem system;
+    private String currentPhoneNo;
+    private String currentMailID;
+    
+    public ViewUpdateCustomerJPanel(EcoSystem system, JPanel container, Customer customer, CustomerDirectory customerDirectory) {
+        
         initComponents();
+        this.customerDirectory = customerDirectory;
+        this.container = container;
+        this.customer = customer;
+        this.system = system;
+        this.currentMailID = customer.getCustEmail();
+        this.currentPhoneNo = customer.getCustContact(); 
+        
+        txtCustID.setText(customer.getCustID());
+        txtCustAddr.setText(customer.getCustAddr());
+        txtCustContact.setText(customer.getCustContact());
+        txtCustEmail.setText(customer.getCustEmail());
+        txtCustName.setText(customer.getCustName());
+        txtCustZip.setText(customer.getCustZipCode());
+        Image imPhoto = customer.getCustPhoto();
+        if(imPhoto!=null){
+        ImageIcon imIcon = new ImageIcon(imPhoto);
+        lblCustPhoto.setIcon(imIcon);
+        }
+        disableEdit();
     }
-
+private void disableEdit(){
+    txtCustAddr.setEditable(false);
+    txtCustContact.setEditable(false);
+    txtCustEmail.setEditable(false);
+    txtCustName.setEditable(false);
+    txtCustZip.setEditable(false);
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,6 +94,8 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
         btnBack1 = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
         btnEnableUpdate = new javax.swing.JButton();
+        lblCustID = new javax.swing.JLabel();
+        txtCustID = new javax.swing.JTextField();
 
         lblCustPhoto.setBackground(new java.awt.Color(222, 236, 236));
         lblCustPhoto.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -72,17 +114,17 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblCustEmail.setText("Enter Email ID:");
+        lblCustEmail.setText("Email ID:");
 
         lblViewUpdateCust.setText("Customer Details");
 
-        lblCustAddr.setText("Enter Street Address :");
+        lblCustAddr.setText("Street Address :");
 
-        lblCustName.setText("Enter Full Name :");
+        lblCustName.setText("Full Name :");
 
-        lblCustZip.setText("Enter Zip Code :");
+        lblCustZip.setText("Zip Code :");
 
-        lblCustContact.setText("Enter Contact No :");
+        lblCustContact.setText("Contact No :");
 
         btnBack1.setText("Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +141,13 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
         });
 
         btnEnableUpdate.setText("Enable Update");
+        btnEnableUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnableUpdateActionPerformed(evt);
+            }
+        });
+
+        lblCustID.setText("Customer ID :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,48 +156,54 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblCustName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustContact, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCustEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblCustID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCustName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCustContact)
+                            .addComponent(lblCustEmail)
                             .addComponent(lblCustAddr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustZip, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(lblCustZip))
                         .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtCustAddr)
                                 .addComponent(txtCustContact, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtCustEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCustZip, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
-                            .addComponent(txtCustName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCustZip, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCustID, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(lblViewUpdateCust))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(28, 28, 28)
                         .addComponent(btnBack1)
-                        .addGap(74, 74, 74)
+                        .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnEnableUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSaveChanges, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(lblViewUpdateCust)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblViewUpdateCust)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCustID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCustID))
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCustName))
@@ -167,16 +222,19 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCustZip)
-                            .addComponent(txtCustZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtCustZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
+                .addGap(12, 12, 12)
                 .addComponent(btnEnableUpdate)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack1)
-                    .addComponent(btnSaveChanges))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(btnSaveChanges)
+                    .addComponent(btnBack1))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,42 +254,73 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
         ImageIcon imIcon = new ImageIcon(imPhoto);
 
         lblCustPhoto.setIcon(imIcon);
-        cust.setCustPhoto(imPhoto);
+        customer.setCustPhoto(imPhoto);
     }//GEN-LAST:event_btnCustPhotoUploadActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
+        container.remove(this);
+        Component[] componentArray = container.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageCustomersJPanel manageCustomersJPanel = (ManageCustomersJPanel) component;
+        manageCustomersJPanel.populateCustomerListTable();
+
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
        
     }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
         // TODO add your handling code here:
+        String custID = txtCustID.getText();
         String custName = txtCustName.getText();
         String custContact = txtCustContact.getText();
         String custAddr = txtCustAddr.getText();
         String custZipCode = txtCustZip.getText();
         String custEmail = txtCustEmail.getText();
+        boolean allSet = true;
         
         if( custName.isEmpty() || custContact.isEmpty() || custAddr.isEmpty() || custZipCode.isEmpty() || custEmail.isEmpty() ) {
+            allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly Enter all the required fields!");
         }   else if (!system.validateMobileNo(custContact)) {
+            allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly enter a Valid Contact Number.");
         }   else if (!system.validateEmail(custEmail)) {
+            allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly check the entered Email ID format.");
-        }   else if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(custUserName)) {
-            JOptionPane.showMessageDialog(null, "Sorry! User with this username already exist!");    
-        }   else if (!custDirectory.isEmailUnique(custEmail)) {
-            JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Customer.");
-        }   else if (!custDirectory.isContactNoUnique(custContact)) {
-            JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Customer.");
-        }   else {
+        }   else if (!customerDirectory.isEmailUnique(custEmail)) {
+            if(!currentMailID.equals(currentMailID))
+            {
+                allSet = false;
+                JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Customer.");
+            }
         }
+        if (!customerDirectory.isContactNoUnique(custContact)) {
+            if(!currentPhoneNo.equals(custContact)){
+                 allSet = false;
+                JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Customer.");
+            }
+        }
+        if(allSet == true){
+            customerDirectory.updateCustomer(custID, custName, custContact, custAddr, custZipCode, custEmail);
+            JOptionPane.showMessageDialog(null, "Customer details updated!");
+            disableEdit();
         }
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
+    private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
+        // TODO add your handling code here:
+    txtCustAddr.setEditable(true);
+    txtCustContact.setEditable(true);
+    txtCustEmail.setEditable(true);
+    txtCustName.setEditable(true);
+    txtCustZip.setEditable(true);
+    btnEnableUpdate.setEnabled(false);
+    }//GEN-LAST:event_btnEnableUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnCustPhotoUpload;
     private javax.swing.JButton btnEnableUpdate;
@@ -239,6 +328,7 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblCustAddr;
     private javax.swing.JLabel lblCustContact;
     private javax.swing.JLabel lblCustEmail;
+    private javax.swing.JLabel lblCustID;
     private javax.swing.JLabel lblCustName;
     private javax.swing.JLabel lblCustPhoto;
     private javax.swing.JLabel lblCustZip;
@@ -246,6 +336,7 @@ public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCustAddr;
     private javax.swing.JTextField txtCustContact;
     private javax.swing.JTextField txtCustEmail;
+    private javax.swing.JTextField txtCustID;
     private javax.swing.JTextField txtCustName;
     private javax.swing.JTextField txtCustZip;
     // End of variables declaration//GEN-END:variables

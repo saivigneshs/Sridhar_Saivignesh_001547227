@@ -8,6 +8,9 @@ package userinterface.CustomerRole;
 import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Role.CustomerRole;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Image;
@@ -40,6 +43,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         this.custDirectory = custDir;
         this.system = system;
         this.container = container;
+        System.out.println("-- "+system);
     }
 
     /**
@@ -84,6 +88,8 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
 
         lblCustEmail.setText("Enter Email ID:");
 
+        pbCustPassStr.setMaximum(30);
+        pbCustPassStr.setMinimum(1);
         pbCustPassStr.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 pbCustPassStrStateChanged(evt);
@@ -272,7 +278,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         }   else if (!system.validateEmail(custEmail)) {
             JOptionPane.showMessageDialog(null, "Kindly check the entered Email ID format.");
         }   else if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(custUserName)) {
-            JOptionPane.showMessageDialog(null, "Sorry! User with this username already exist!");    
+            JOptionPane.showMessageDialog(null, "Entered User Name is already mapped to another Customer");    
         }   else if (!custDirectory.isEmailUnique(custEmail)) {
             JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Customer.");
         }   else if (!custDirectory.isContactNoUnique(custContact)) {
@@ -286,8 +292,10 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
             cust.setCustEmail(custEmail);
             cust.setCustZipCode(custZipCode);
             custDirectory.addCustomer(cust);
+            Employee employee = system.getEmployeeDirectory().createEmployee(cust.getCustID());
             system.setCustomerDirectory(custDirectory);
-            JOptionPane.showMessageDialog(null, "New Customer add to the System Successfully!");
+             UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new CustomerRole());
+            JOptionPane.showMessageDialog(null, "New Customer "+account.getUsername()+" added to the System Successfully!");
             resetFields();
         }
     }//GEN-LAST:event_lblAddCustActionPerformed
@@ -299,6 +307,8 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         pwCustPass.setText("");
         txtCustUserName.setText("");
         txtCustZip.setText("");
+        pbCustPassStr.setValue(0);
+        lblCustPhoto.setText("");
     }
     private void pbCustPassStrStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pbCustPassStrStateChanged
         // TODO add your handling code here:
@@ -312,15 +322,15 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
     private void pwCustPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwCustPassKeyTyped
         // TODO add your handling code here:
         int pwSize = pwCustPass.getText().length();
-        System.out.println("PwSize :: "+pwSize);
+//        System.out.println("PassKeyTyped PwSize :: "+pwSize);
         pbCustPassStr.setValue(pwSize);
     }//GEN-LAST:event_pwCustPassKeyTyped
 
     private void pwCustPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwCustPassKeyReleased
         // TODO add your handling code here:
-          int pwSize = pwCustPass.getText().length();
-        System.out.println("PwSize :: "+pwSize);
-        pbCustPassStr.setValue(pwSize);
+//          int pwSize = pwCustPass.getText().length();
+//        System.out.println("PassKeyReleased PwSize :: "+pwSize);
+//        pbCustPassStr.setValue(pwSize);
     }//GEN-LAST:event_pwCustPassKeyReleased
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -328,7 +338,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
          container.remove(this);
         Component[] componentArray = container.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        UpdateCustomersJPanel manageCustomersJPanel = (UpdateCustomersJPanel) component;
+        ManageCustomersJPanel manageCustomersJPanel = (ManageCustomersJPanel) component;
         manageCustomersJPanel.populateCustomerListTable();
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
