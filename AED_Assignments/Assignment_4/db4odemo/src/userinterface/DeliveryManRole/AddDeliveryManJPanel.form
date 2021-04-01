@@ -57,8 +57,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtRestUserName" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtRestName" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtDeliUserName" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtDeliName" alignment="0" max="32767" attributes="0"/>
                       <Component id="pwDeliPass" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="96" max="32767" attributes="0"/>
@@ -95,12 +95,12 @@
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblDeliName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtRestName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDeliName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblDeliUserName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtRestUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDeliUserName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -139,9 +139,9 @@
         <Property name="text" type="java.lang.String" value="Enter Email ID :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtRestName">
+    <Component class="javax.swing.JTextField" name="txtDeliName">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtRestUserName">
+    <Component class="javax.swing.JTextField" name="txtDeliUserName">
     </Component>
     <Component class="javax.swing.JPasswordField" name="pwDeliPass">
       <Events>

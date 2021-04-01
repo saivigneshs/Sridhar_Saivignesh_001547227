@@ -90,7 +90,7 @@
                 <Column editable="false" title="Contact No" type="java.lang.Object"/>
                 <Column editable="false" title="Email" type="java.lang.Object"/>
                 <Column editable="false" title="Street Address" type="java.lang.Object"/>
-                <Column editable="true" title="Zipcode" type="java.lang.Object"/>
+                <Column editable="false" title="Zipcode" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

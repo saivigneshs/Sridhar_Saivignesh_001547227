@@ -175,15 +175,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
       
-        loginJButton.setEnabled(false);
+        loginJButton.setEnabled(true);
         logoutJButton.setEnabled(true);
-        userNameJTextField.setEnabled(false);
-        passwordField.setEnabled(false);        
+        userNameJTextField.setEnabled(true);
+        passwordField.setEnabled(true);         
         userNameJTextField.setText("");
         passwordField.setText("");
 
         container.removeAll();
-       
+       JPanel blankJP = new JPanel();
+       container.add("blank",blankJP);
         
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);

@@ -8,7 +8,11 @@ package userinterface.DeliveryManRole;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Role.DeliverManRole;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -45,8 +49,8 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
         lblDeliPass = new javax.swing.JLabel();
         lblDeliContact = new javax.swing.JLabel();
         lblDeliEmail = new javax.swing.JLabel();
-        txtRestName = new javax.swing.JTextField();
-        txtRestUserName = new javax.swing.JTextField();
+        txtDeliName = new javax.swing.JTextField();
+        txtDeliUserName = new javax.swing.JTextField();
         pwDeliPass = new javax.swing.JPasswordField();
         txtDeliContact = new javax.swing.JTextField();
         txtDeliEmail = new javax.swing.JTextField();
@@ -139,8 +143,8 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
                             .addComponent(lblDeliPass)))
                     .addGap(70, 70, 70)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtRestUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtRestName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtDeliUserName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtDeliName, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(pwDeliPass, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(96, Short.MAX_VALUE)))
         );
@@ -169,11 +173,11 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
                     .addGap(53, 53, 53)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDeliName)
-                        .addComponent(txtRestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtDeliName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDeliUserName)
-                        .addComponent(txtRestUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtDeliUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblDeliPass)
@@ -201,8 +205,8 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
         container.remove(this);
         Component[] componentArray = container.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageRestaurantsJPanel manageRestJPanel = (ManageRestaurantsJPanel) component;
-        manageRestJPanel.populateRestaurantsTable();
+        ManageDeliveryManJPanel manageDeliJPanel = (ManageDeliveryManJPanel) component;
+        manageDeliJPanel.populateDeliveryManTable();
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -210,9 +214,9 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
     private void btnAddRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRestActionPerformed
         // TODO add your handling code here:
 
-        String custName = txtRestName.getText();
+        String custName = txtDeliName.getText();
         String custContact = txtDeliContact.getText();
-        String custUserName = txtRestUserName.getText();
+        String custUserName = txtDeliUserName.getText();
         String custPass = String.valueOf(pwDeliPass.getPassword());
         String custEmail = txtDeliEmail.getText();
 
@@ -234,15 +238,21 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
             deliveryMan.setDeliName(custName);
             deliveryMan.setDeliPhoneNo(custContact);
             deliveryMan.setDeliEmail(custEmail);
-            restDirectory.addRestaurant(rest);
-            Employee employee = system.getEmployeeDirectory().createEmployee(rest.getRestNo() );
-            system.setRestaurantDirectory(restDirectory);
-            UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new AdminRole());
+            deliveryManDirectory.addDeliveryMan(deliveryMan);
+            Employee employee = system.getEmployeeDirectory().createEmployee(deliveryMan.getDeliveryID());
+            system.setDeliveryManDirectory(deliveryManDirectory);
+            UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new DeliverManRole());
             JOptionPane.showMessageDialog(null, "New Restaurant "+account.getUsername()+" added to the System Successfully!");
-            clearAllFields();
+            resetFields();
         }
     }//GEN-LAST:event_btnAddRestActionPerformed
-
+    public void resetFields(){
+            txtDeliName.setText("");
+            txtDeliContact.setText("");
+            txtDeliUserName.setText("");
+            txtDeliEmail.setText("");
+            pwDeliPass.setText("");
+    }
     private void pbDeliPassStrStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pbDeliPassStrStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_pbDeliPassStrStateChanged
@@ -261,7 +271,7 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField pwDeliPass;
     private javax.swing.JTextField txtDeliContact;
     private javax.swing.JTextField txtDeliEmail;
-    private javax.swing.JTextField txtRestName;
-    private javax.swing.JTextField txtRestUserName;
+    private javax.swing.JTextField txtDeliName;
+    private javax.swing.JTextField txtDeliUserName;
     // End of variables declaration//GEN-END:variables
 }

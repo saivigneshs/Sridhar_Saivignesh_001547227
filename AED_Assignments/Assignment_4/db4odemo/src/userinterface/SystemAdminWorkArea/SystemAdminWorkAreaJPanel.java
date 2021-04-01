@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import userinterface.CustomerRole.ManageCustomersJPanel;
+import userinterface.DeliveryManRole.ManageDeliveryManJPanel;
 import userinterface.RestaurantAdminRole.ManageRestaurantsJPanel;
 
 /**
@@ -176,10 +177,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageRestaActionPerformed
 
     private void btnManageDeliveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryActionPerformed
-//       ManageDeliveryManJPanel manageDeliveryJPanel = new UpdateDeliveryManJPanel(userProcessContainer, ecosystem, deliveryManDirectory);
-//        userProcessContainer.add("manageDeliveryJPanel", manageDeliveryJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+       ManageDeliveryManJPanel manageDeliveryJPanel = new ManageDeliveryManJPanel(userProcessContainer, ecosystem, deliveryManDirectory);
+        userProcessContainer.add("manageDeliveryJPanel", manageDeliveryJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDeliveryActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged

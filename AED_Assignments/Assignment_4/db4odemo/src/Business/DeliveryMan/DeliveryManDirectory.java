@@ -26,8 +26,8 @@ public class DeliveryManDirectory {
     public void setDeliveryManDirectory(ArrayList<DeliveryMan> deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
-    public DeliveryMan add(DeliveryMan deliveryMan){
-        deliveryMan.setDeliveryID("DeliveryMan"+(deliveryManDirectory.size()+1));
+    public DeliveryMan addDeliveryMan(DeliveryMan deliveryMan){
+        deliveryMan.setDeliveryID("DeliveryMan "+(deliveryManDirectory.size()+1));
         deliveryManDirectory.add(deliveryMan);
         return deliveryMan;
     }
@@ -42,7 +42,7 @@ public class DeliveryManDirectory {
         deliveryManDirectory.remove(index);
     }
     
-    public DeliveryMan getDeliveryManId(int index){
+    public DeliveryMan getDeliveryManById(int index){
         return deliveryManDirectory.get(index);
     }
     
