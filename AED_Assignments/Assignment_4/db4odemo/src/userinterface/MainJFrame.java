@@ -8,6 +8,8 @@ import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Order.OrderDirectory;
+import Business.Order.Menu;
 
 import Business.Organization;
 import Business.Restaurant.RestaurantDirectory;
@@ -31,6 +33,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private final CustomerDirectory customerDirectory;
     private final RestaurantDirectory restaurantDirectory;
     private final DeliveryManDirectory deliveryManDirectory;
+    private final Menu menu;
+    private final OrderDirectory orderDirectory;
     
     public MainJFrame() {
         initComponents();
@@ -54,6 +58,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         } else {
             this.deliveryManDirectory = system.getDeliveryManDirectory();
+        }
+        if (system.getMenu()== null) {
+            menu = new Menu();
+
+        } else {
+            this.menu = system.getMenu();
+        }
+         if (system.getOrderDirectory()== null) {
+            orderDirectory = new OrderDirectory();
+
+        } else {
+            this.orderDirectory = system.getOrderDirectory();
         }
         
         this.setSize(1680, 1050);
@@ -162,7 +178,7 @@ public class MainJFrame extends javax.swing.JFrame {
            
         }else{
             CardLayout layout = (CardLayout)container.getLayout();
-            container.add("workarea",userAcc.getRole().createWorkArea(container, userAcc, system, customerDirectory, restaurantDirectory, deliveryManDirectory));
+            container.add("workarea",userAcc.getRole().createWorkArea(container, userAcc, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menu, orderDirectory));
             layout.next(container);
         }
         loginJButton.setEnabled(false);
