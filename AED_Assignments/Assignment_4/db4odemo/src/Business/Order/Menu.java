@@ -14,6 +14,10 @@ import java.util.ArrayList;
 public class Menu {
      private ArrayList<OrderItem> menuList;
 
+       public Menu(){
+        menuList = new ArrayList<OrderItem>();
+    }
+     
     public ArrayList<OrderItem> getMenuList() {
         return menuList;
     }
@@ -32,6 +36,7 @@ public class Menu {
         item.setCategory(category);
         item.setRestaurantNo(restaurantId);
         item.setIngredients(contents);
+        System.out.println("Order Item "+name+" added to Menu");
         menuList.add(item);
     }
     

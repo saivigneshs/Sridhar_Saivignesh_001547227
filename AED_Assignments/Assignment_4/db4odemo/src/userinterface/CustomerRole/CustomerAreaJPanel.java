@@ -81,7 +81,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRestaurantList = new javax.swing.JTable();
-        btnBack = new javax.swing.JButton();
         btnPlaceOrder = new javax.swing.JButton();
         cmboxQtyCount = new javax.swing.JComboBox();
         lblQuantity = new javax.swing.JLabel();
@@ -125,13 +124,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblRestaurantList);
 
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         btnPlaceOrder.setText("Place Order");
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,9 +153,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 565, Short.MAX_VALUE)
                 .addComponent(refreshTestJButton)
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
@@ -192,9 +182,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addGap(19, 19, 19)
                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(refreshTestJButton)
-                    .addComponent(btnBack))
+                .addComponent(refreshTestJButton)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -212,10 +200,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         populateMenuTable();
         
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
@@ -260,7 +244,6 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cmboxQtyCountActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JButton btnViewOrders;
     private javax.swing.JComboBox cmboxQtyCount;

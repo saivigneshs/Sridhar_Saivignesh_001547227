@@ -11,7 +11,7 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import userinterface.RestaurantAdminRole.ManageRestaurantsJPanel;
+import userinterface.RestaurantAdminRole.RestMenuJPanel;
 
 /**
  *
@@ -37,6 +37,7 @@ public class EditMenuItemJPanel extends javax.swing.JPanel {
         txtItemName.setText(item.getItemName());
         txtIngredients.setText(item.getIngredients());
         txtItemPrice.setText(String.valueOf(item.getPrice()));
+        txtCategory.setText(String.valueOf(item.getCategory()));
         txtItemNo.setText(item.getItemNo());
         disableUpdate();
     }
@@ -226,8 +227,8 @@ public class EditMenuItemJPanel extends javax.swing.JPanel {
         container.remove(this);
         Component[] componentArray = container.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageRestaurantsJPanel manageRestaurantJPanel = (ManageRestaurantsJPanel) component;
-        manageRestaurantJPanel.populateRestaurantsTable();
+        RestMenuJPanel restMenuJPanel = (RestMenuJPanel) component;
+        restMenuJPanel.populateMenuTable();
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
 

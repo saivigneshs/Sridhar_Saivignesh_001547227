@@ -55,8 +55,8 @@ public class RestMenuJPanel extends javax.swing.JPanel {
                 row[3] = item.getIngredients();
                 row[4] = item.getPrice();
                 model.addRow(row);
-            }
-        }
+            } 
+    }
     }
     /**
      * This method is called from within the constructor to initialize the form.

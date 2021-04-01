@@ -13,6 +13,8 @@ import Business.Order.Order;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +28,7 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
     private final EcoSystem system;
     private final UserAccount userAccount;
     private final OrderDirectory orderDirectory;
+    private final JPanel container;
     /**
      * Creates new form OrderRequestJPanel
      */
@@ -34,6 +37,10 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         this.system = system;
         this.userAccount = account;
         this.orderDirectory = orderDirectory;
+        this.container = userProcessContainer;
+        lblOrderFeedback.setVisible(false);
+        orderComment.setVisible(false);
+        btnOrderCmnt.setVisible(false);
         populateWorkRequestTable();
     }
     public void populateWorkRequestTable() {
@@ -68,8 +75,9 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         orderComment = new javax.swing.JTextField();
         btnOrderCmnt = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblOrderFeedback = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -106,9 +114,16 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Order Feedback :");
+        lblOrderFeedback.setText("Order Feedback :");
 
         jLabel1.setText("Order Work List");
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -118,19 +133,20 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(orderComment, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnOrderCmnt))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(361, 361, 361)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 292, Short.MAX_VALUE)))
+                        .addGap(361, 361, 361)
+                        .addComponent(jLabel1)
+                        .addGap(0, 446, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(lblOrderFeedback)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(orderComment, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnOrderCmnt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,9 +157,10 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblOrderFeedback)
                     .addComponent(orderComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOrderCmnt))
+                    .addComponent(btnOrderCmnt)
+                    .addComponent(btnBack))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -154,10 +171,9 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         int count = workRequestJTable.getSelectedRowCount();
         if (count == 1) {
             if (row >= 0) {
-                String orderId = workRequestJTable.getValueAt(row, 8).toString();
+                String orderId = workRequestJTable.getValueAt(row, 1).toString();
                 Order order = orderDirectory.fetchOrders(orderId);
-                if (order.getStatus().equalsIgnoreCase("Completed")) {
-                    String comment = orderComment.getText();
+               String comment = orderComment.getText();
                     if (!comment.isEmpty()) {
                         order.setMessage(comment);
                         orderComment.setText("");
@@ -166,19 +182,29 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
                     } else {
                         JOptionPane.showMessageDialog(null, "Feedback is Mandatory!");
                     }
-                }
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
     }//GEN-LAST:event_btnOrderCmntActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         container.remove(this);
+        Component[] componentArray = container.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOrderCmnt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblOrderFeedback;
     private javax.swing.JTextField orderComment;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables

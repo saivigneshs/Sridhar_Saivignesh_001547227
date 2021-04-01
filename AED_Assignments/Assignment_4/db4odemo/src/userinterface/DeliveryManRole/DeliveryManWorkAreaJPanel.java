@@ -48,13 +48,12 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             if (order.getDeliveryMan() != null) {
                 if (order.getDeliveryMan().getDeliveryID().equalsIgnoreCase(userAccount.getEmployee().getName())) {
                     Object[] row = new Object[7];
-                    row[0] = order.getMessage();
-                    row[1] = order.getSender();
-                    row[2] = order.getStatus();
-                    row[3] = order.getOrderNo();
+                    row[5] = order.getMessage();
+                    row[2] = order.getSender();
+                    row[1] = order.getStatus();
+                    row[0] = order.getOrderNo();
                     row[4] = order.getCustomer().getCustAddr();
-                    row[5] = order.getRestaurant().getRestAddress();
-                    row[6] = order.getRestaurant().getRestZipCode();
+                    row[3] = order.getRestaurant().getRestAddress();;
                     model.addRow(row);
                 }
             }
@@ -183,25 +182,30 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        int selectedRow = workRequestJTable.getSelectedRow();
+                int selectedRow = workRequestJTable.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row!");
             return;
         }
-
-        String selectedOrderId = (String) workRequestJTable.getValueAt(selectedRow, 3);
+        String orderStatus = (String) workRequestJTable.getValueAt(selectedRow, 1);
+        String selectedOrderId = (String) workRequestJTable.getValueAt(selectedRow, 0);
+       if(orderStatus.equals("Completed")){
+           lblMarkDeli.setVisible(false);
+           txtComments.setVisible(false);
+           btnDeliComplete.setVisible(false);
+           JOptionPane.showMessageDialog(null, "Order has already been completed!");
+       }
+       else{
+           
+           lblMarkDeli.setVisible(true);
+           txtComments.setVisible(true);
+           btnDeliComplete.setVisible(true);
         Order order = business.getOrderDirectory().fetchOrders(selectedOrderId);
-
-        if (order.getStatus().trim().equalsIgnoreCase("Out For Delivery")) {
-            order.setConfirmOrder(txtComments.getText());
-            order.setStatus("Completed");
-            txtComments.setText("");
-            JOptionPane.showMessageDialog(null, "Order updated!");
-            populateTable();
-        } else {
-            JOptionPane.showMessageDialog(null, "Please confirm order pick up before confirming delivery!");
-        }
+        order.setStatus("Out For Delivery");
+        JOptionPane.showMessageDialog(null, "Order has been updated!");
+        populateTable();
+       }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnDeliCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliCompleteActionPerformed
@@ -212,7 +216,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
 
-        String selectedOrderId = (String) workRequestJTable.getValueAt(selectedRow, 3);
+        String selectedOrderId = (String) workRequestJTable.getValueAt(selectedRow, 0);
         Order order = business.getOrderDirectory().fetchOrders(selectedOrderId);
 
         if (order.getStatus().trim().equalsIgnoreCase("Out For Delivery")) {

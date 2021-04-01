@@ -32,11 +32,15 @@ public class RestOrderJPanel extends javax.swing.JPanel {
     private final UserAccount account;
     private final EcoSystem business;
     private final DeliveryManDirectory deliveryManDirectory;
+    private final OrderDirectory orderDirectory;
+    private final Menu menuDirectory;
     public RestOrderJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.business = business;
         this.deliveryManDirectory = deliveryManDirectory;
+        this.orderDirectory = orderDirectory;
+        this.menuDirectory = menuDirectory;
         initComponents();
         populateOrderListTable();
         populateDeliveryManDetailsTable();
@@ -51,18 +55,18 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         public void populateOrderListTable() {
         DefaultTableModel model = (DefaultTableModel) tblOrderList.getModel();
         model.setRowCount(0);
-        for (Order order : business.getOrderDirectory().getOrderDir()) {
+        for (Order order : orderDirectory.getOrderDir()) {
             if (order.getRestaurant().getRestNo().equalsIgnoreCase(account.getEmployee().getName())) {
                 Object[] row = new Object[10];
                 row[0] = order.getOrderNo();
-                row[1] = order.getSender();
-                row[2] = (order.getDeliveryMan() == null) ? "Awaiting Confirmation" : order.getDeliveryMan().getDeliName();
-                row[3] = order.getMessage();
+                row[7] = order.getSender();
+                row[5] = (order.getDeliveryMan() == null) ? "Awaiting Confirmation" : order.getDeliveryMan().getDeliName();
+                row[8] = order.getMessage();
                 row[4] = order.getStatus();
-                row[5] = order.getRestaurant().getRestName();
+                row[1] = order.getRestaurant().getRestName();
                 row[6] = (order.getConfirmOrder()== null ? "Waiting" : order.getConfirmOrder());
-                row[7] = order.getOrderItem().getItemName();
-                row[8] = order.getQuantity();
+                row[2] = order.getOrderItem().getItemName();
+                row[3] = order.getQuantity();
                 row[9] = order.getQuantity() * order.getOrderItem().getPrice();
                 
                 model.addRow(row);
@@ -220,12 +224,17 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         int count = tblOrderList.getSelectedRowCount();
         if (count == 1) {
             if (row >= 0) {
-                String id = (String) tblOrderList.getValueAt(row, 0);
-                Order order = business.getOrderDirectory().fetchOrders(id);
-                order.setStatus("Confirmed");
-                JOptionPane.showMessageDialog(null, "Order Confirmed!");
-                populateOrderListTable();
-            }
+                
+                String orderStatus = (String) tblOrderList.getValueAt(row, 4);
+                if(orderStatus.equals("Completed")){ JOptionPane.showMessageDialog(null, "This order is already complete.");}
+                else{
+                    String id = (String) tblOrderList.getValueAt(row, 0);
+                    Order order = business.getOrderDirectory().fetchOrders(id);
+                    order.setStatus("Confirmed");
+                    JOptionPane.showMessageDialog(null, "The Order has been Confirmed!");
+                    populateOrderListTable();
+                    }
+                }
         } else {
             JOptionPane.showMessageDialog(null, "Choose a single order at one time!");
         }
@@ -247,7 +256,7 @@ public class RestOrderJPanel extends javax.swing.JPanel {
                         if (deliveryRow >= 0) {
                             System.out.println("Inside "+ deliveryRow);
                             order.setDeliveryMan(deliveryManDirectory.getDeliveryManDirectory().get(deliveryRow));
-                            String empId = (String) tblDeliManDetails.getValueAt(deliveryRow,3);
+                            String empId = (String) tblDeliManDetails.getValueAt(deliveryRow,0);
                             UserAccount user = business.getUserAccountDirectory().getUserByEmployeeNo(empId);
                             order.setReceiver(user);
                             order.setStatus("Preparing Order.");

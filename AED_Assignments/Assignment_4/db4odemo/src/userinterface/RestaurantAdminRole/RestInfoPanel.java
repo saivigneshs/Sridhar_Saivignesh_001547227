@@ -34,6 +34,7 @@ public class RestInfoPanel extends javax.swing.JPanel {
         initComponents();
          this.container = container;
          this.system = system;
+         txtRestNo.setEnabled(false);
         disableEdit();
         
         for (Restaurant rest : restaurantDirectory.getRestDirectory()) {
@@ -216,11 +217,9 @@ private void disableEdit(){
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         
-         container.remove(this);
+       container.remove(this);
         Component[] componentArray = container.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageRestaurantsJPanel manageRestaurantJPanel = (ManageRestaurantsJPanel) component;
-        manageRestaurantJPanel.populateRestaurantsTable();
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
         
