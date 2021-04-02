@@ -38,9 +38,7 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.orderDirectory = orderDirectory;
         this.container = userProcessContainer;
-        lblOrderFeedback.setVisible(false);
-        orderComment.setVisible(false);
-        btnOrderCmnt.setVisible(false);
+        
         populateWorkRequestTable();
     }
     public void populateWorkRequestTable() {
@@ -79,6 +77,12 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+        setForeground(new java.awt.Color(0, 51, 51));
+
+        workRequestJTable.setBackground(new java.awt.Color(204, 255, 255));
+        workRequestJTable.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        workRequestJTable.setForeground(new java.awt.Color(0, 51, 51));
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
@@ -107,18 +111,35 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(workRequestJTable);
 
+        orderComment.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        orderComment.setForeground(new java.awt.Color(0, 51, 51));
+
+        btnOrderCmnt.setBackground(new java.awt.Color(204, 255, 255));
+        btnOrderCmnt.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnOrderCmnt.setForeground(new java.awt.Color(0, 51, 51));
         btnOrderCmnt.setText("Comment");
+        btnOrderCmnt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnOrderCmnt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrderCmntActionPerformed(evt);
             }
         });
 
+        lblOrderFeedback.setBackground(new java.awt.Color(204, 255, 255));
+        lblOrderFeedback.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblOrderFeedback.setForeground(new java.awt.Color(0, 51, 51));
         lblOrderFeedback.setText("Order Feedback :");
 
+        jLabel1.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 51));
         jLabel1.setText("Order Work List");
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -133,35 +154,39 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(361, 361, 361)
-                        .addComponent(jLabel1)
-                        .addGap(0, 446, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(150, 150, 150)
+                                .addComponent(lblOrderFeedback)
+                                .addGap(18, 18, 18)
+                                .addComponent(orderComment, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(btnOrderCmnt, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(349, 349, 349)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 219, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lblOrderFeedback)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(orderComment, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnOrderCmnt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(98, 98, 98))
+                .addGap(77, 77, 77)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addGap(46, 46, 46)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblOrderFeedback)
                     .addComponent(orderComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOrderCmnt)
-                    .addComponent(btnBack))
-                .addContainerGap(120, Short.MAX_VALUE))
+                    .addComponent(lblOrderFeedback)
+                    .addComponent(btnOrderCmnt))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

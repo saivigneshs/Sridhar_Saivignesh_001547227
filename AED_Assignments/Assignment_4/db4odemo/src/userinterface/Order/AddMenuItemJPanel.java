@@ -57,72 +57,109 @@ public class AddMenuItemJPanel extends javax.swing.JPanel {
         lblCategory = new javax.swing.JLabel();
         txtCategory = new javax.swing.JTextField();
 
-        lblAddItem.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        lblAddItem.setBackground(new java.awt.Color(204, 255, 255));
+        lblAddItem.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblAddItem.setForeground(new java.awt.Color(0, 51, 51));
         lblAddItem.setText("Add Order Item");
 
+        lblItemName.setBackground(new java.awt.Color(204, 255, 255));
+        lblItemName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblItemName.setForeground(new java.awt.Color(0, 51, 51));
         lblItemName.setText("Item Name :");
 
+        lblIngredients.setBackground(new java.awt.Color(204, 255, 255));
+        lblIngredients.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblIngredients.setForeground(new java.awt.Color(0, 51, 51));
         lblIngredients.setText("Ingredients Added :");
 
+        lblPrice.setBackground(new java.awt.Color(204, 255, 255));
+        lblPrice.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(0, 51, 51));
         lblPrice.setText("Price :");
 
+        txtItemPrice.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtItemPrice.setForeground(new java.awt.Color(0, 51, 51));
+
+        txtIngredients.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtIngredients.setForeground(new java.awt.Color(0, 51, 51));
+
+        txtItemName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtItemName.setForeground(new java.awt.Color(0, 51, 51));
+
+        btnSave.setBackground(new java.awt.Color(204, 255, 255));
+        btnSave.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 51, 51));
         btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
 
+        lblCategory.setBackground(new java.awt.Color(204, 255, 255));
+        lblCategory.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCategory.setForeground(new java.awt.Color(0, 51, 51));
         lblCategory.setText("Category :");
+
+        txtCategory.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCategory.setForeground(new java.awt.Color(0, 51, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblIngredients)
-                            .addComponent(lblItemName))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblIngredients)
+                                    .addComponent(lblItemName))
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPrice)
+                                    .addComponent(lblCategory))
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPrice)
-                            .addComponent(lblCategory))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(btnSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBack)
-                        .addGap(39, 39, 39)))
-                .addGap(0, 65, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAddItem)
-                .addGap(134, 134, 134))
+                        .addGap(189, 189, 189)
+                        .addComponent(lblAddItem)))
+                .addGap(0, 91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lblAddItem)
                 .addGap(28, 28, 28)
+                .addComponent(lblAddItem)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblItemName)
                     .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,7 +179,7 @@ public class AddMenuItemJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnSave))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

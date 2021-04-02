@@ -75,9 +75,18 @@ public class RestMenuJPanel extends javax.swing.JPanel {
         btnEditItem = new javax.swing.JButton();
         btnDeleteItem = new javax.swing.JButton();
 
-        lblRestaurantMenu.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblRestaurantMenu.setText("Restaurant Menu");
+        setBackground(new java.awt.Color(204, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblRestaurantMenu.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestaurantMenu.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblRestaurantMenu.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestaurantMenu.setText("Restaurant Menu");
+        add(lblRestaurantMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 27, -1, -1));
+
+        tblResMenu.setBackground(new java.awt.Color(204, 255, 255));
+        tblResMenu.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        tblResMenu.setForeground(new java.awt.Color(0, 51, 51));
         tblResMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -99,77 +108,55 @@ public class RestMenuJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblResMenu);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 77, 505, 204));
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 327, 56, -1));
 
+        btnAddItem.setBackground(new java.awt.Color(204, 255, 255));
+        btnAddItem.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnAddItem.setForeground(new java.awt.Color(0, 51, 51));
         btnAddItem.setText("Add Order Item");
+        btnAddItem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddItemActionPerformed(evt);
             }
         });
+        add(btnAddItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 299, 123, -1));
 
+        btnEditItem.setBackground(new java.awt.Color(204, 255, 255));
+        btnEditItem.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnEditItem.setForeground(new java.awt.Color(0, 51, 51));
         btnEditItem.setText("Edit Order Item");
+        btnEditItem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEditItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditItemActionPerformed(evt);
             }
         });
+        add(btnEditItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 333, 123, -1));
 
+        btnDeleteItem.setBackground(new java.awt.Color(204, 255, 255));
+        btnDeleteItem.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnDeleteItem.setForeground(new java.awt.Color(0, 51, 51));
         btnDeleteItem.setText("Delete Order Item");
+        btnDeleteItem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDeleteItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteItemActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(btnBack)
-                        .addGap(282, 282, 282)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDeleteItem)
-                            .addComponent(btnEditItem, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(193, 193, 193)
-                            .addComponent(lblRestaurantMenu))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblRestaurantMenu)
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnAddItem)
-                        .addGap(11, 11, 11)
-                        .addComponent(btnEditItem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeleteItem)))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        add(btnDeleteItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 368, 123, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

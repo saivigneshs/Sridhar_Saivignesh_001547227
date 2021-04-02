@@ -59,16 +59,49 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
         btnAddRest = new javax.swing.JButton();
         pbDeliPassStr = new javax.swing.JProgressBar();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDeliName.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliName.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliName.setText("Enter Full Name :");
+        add(lblDeliName, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 56, -1, -1));
 
+        lblDeliUserName.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliUserName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliUserName.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliUserName.setText("Set Username :");
+        add(lblDeliUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 85, -1, -1));
 
+        lblDeliPass.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliPass.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliPass.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliPass.setText("Set Password :");
+        add(lblDeliPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 114, -1, -1));
 
+        lblDeliContact.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliContact.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliContact.setText("Enter Contact No :");
+        add(lblDeliContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 161, -1, -1));
 
+        lblDeliEmail.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliEmail.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliEmail.setText("Enter Email ID :");
+        add(lblDeliEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 190, -1, -1));
 
+        txtDeliName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliName.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtDeliName, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 53, 127, -1));
+
+        txtDeliUserName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliUserName.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtDeliUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 82, 127, -1));
+
+        pwDeliPass.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pwDeliPass.setForeground(new java.awt.Color(0, 51, 51));
         pwDeliPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwDeliPassActionPerformed(evt);
@@ -82,23 +115,49 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
                 pwDeliPassKeyTyped(evt);
             }
         });
+        add(pwDeliPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 111, 127, -1));
 
+        txtDeliContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliContact.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtDeliContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 158, 126, -1));
+
+        txtDeliEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliEmail.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtDeliEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 187, 126, -1));
+
+        lblAddRest.setBackground(new java.awt.Color(204, 255, 255));
+        lblAddRest.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblAddRest.setForeground(new java.awt.Color(0, 51, 51));
         lblAddRest.setText("Add Delivery Person");
+        add(lblAddRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 251, 80, 30));
 
+        btnAddRest.setBackground(new java.awt.Color(204, 255, 255));
+        btnAddRest.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnAddRest.setForeground(new java.awt.Color(0, 51, 51));
         btnAddRest.setText("Add");
+        btnAddRest.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddRest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddRestActionPerformed(evt);
             }
         });
+        add(btnAddRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 80, 30));
 
+        pbDeliPassStr.setBackground(new java.awt.Color(204, 255, 255));
+        pbDeliPassStr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pbDeliPassStr.setForeground(new java.awt.Color(0, 51, 51));
         pbDeliPassStr.setMaximum(30);
         pbDeliPassStr.setMinimum(1);
         pbDeliPassStr.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -106,84 +165,7 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
                 pbDeliPassStrStateChanged(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnBack)
-                        .addGap(95, 95, 95)
-                        .addComponent(btnAddRest))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(lblAddRest))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDeliContact)
-                            .addComponent(lblDeliEmail))
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDeliContact, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                            .addComponent(txtDeliEmail)
-                            .addComponent(pbDeliPassStr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(98, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(49, 49, 49)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblDeliUserName)
-                        .addComponent(lblDeliName)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addComponent(lblDeliPass)))
-                    .addGap(70, 70, 70)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtDeliUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtDeliName, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pwDeliPass, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(96, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lblAddRest)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addComponent(pbDeliPassStr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDeliContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDeliContact))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDeliEmail)
-                    .addComponent(txtDeliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnAddRest))
-                .addGap(89, 89, 89))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDeliName)
-                        .addComponent(txtDeliName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDeliUserName)
-                        .addComponent(txtDeliUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDeliPass)
-                        .addComponent(pwDeliPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(232, Short.MAX_VALUE)))
-        );
+        add(pbDeliPassStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 139, 126, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void pwDeliPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwDeliPassActionPerformed

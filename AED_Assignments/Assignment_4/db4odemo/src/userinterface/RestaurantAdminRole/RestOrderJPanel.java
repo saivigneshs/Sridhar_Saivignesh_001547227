@@ -98,9 +98,19 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         btnAssignDeliveryMan = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        lblRestWorkList.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblRestWorkList.setText("Restaurant Order Work List");
+        setBackground(new java.awt.Color(204, 255, 255));
+        setForeground(new java.awt.Color(0, 51, 51));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblRestWorkList.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestWorkList.setText("Restaurant Order Work List");
+        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 24, -1, -1));
+
+        tblOrderList.setBackground(new java.awt.Color(204, 255, 255));
+        tblOrderList.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        tblOrderList.setForeground(new java.awt.Color(0, 51, 51));
         tblOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -129,13 +139,23 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         });
         scrollOrderList.setViewportView(tblOrderList);
 
+        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 843, 110));
+
+        brnConfirmOrder.setBackground(new java.awt.Color(204, 255, 255));
+        brnConfirmOrder.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        brnConfirmOrder.setForeground(new java.awt.Color(0, 51, 51));
         brnConfirmOrder.setText("Confirm Order");
+        brnConfirmOrder.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         brnConfirmOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brnConfirmOrderActionPerformed(evt);
             }
         });
+        add(brnConfirmOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 110, 30));
 
+        tblDeliManDetails.setBackground(new java.awt.Color(204, 255, 255));
+        tblDeliManDetails.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        tblDeliManDetails.setForeground(new java.awt.Color(0, 51, 51));
         tblDeliManDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -157,65 +177,31 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         });
         scrollDeliveryMan.setViewportView(tblDeliManDetails);
 
+        add(scrollDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 407, 116));
+
+        btnAssignDeliveryMan.setBackground(new java.awt.Color(204, 255, 255));
+        btnAssignDeliveryMan.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnAssignDeliveryMan.setForeground(new java.awt.Color(0, 51, 51));
         btnAssignDeliveryMan.setText("Assign Delivery Man");
+        btnAssignDeliveryMan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignDeliveryManActionPerformed(evt);
             }
         });
+        add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 140, 30));
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollOrderList)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAssignDeliveryMan)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(brnConfirmOrder)
-                .addGap(26, 26, 26))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(lblRestWorkList))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(scrollDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(224, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblRestWorkList)
-                .addGap(18, 18, 18)
-                .addComponent(scrollOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(brnConfirmOrder)
-                .addGap(24, 24, 24)
-                .addComponent(scrollDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAssignDeliveryMan)
-                    .addComponent(btnBack))
-                .addContainerGap(107, Short.MAX_VALUE))
-        );
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 50, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void brnConfirmOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnConfirmOrderActionPerformed
@@ -228,11 +214,14 @@ public class RestOrderJPanel extends javax.swing.JPanel {
                 String orderStatus = (String) tblOrderList.getValueAt(row, 4);
                 if(orderStatus.equals("Completed")){ JOptionPane.showMessageDialog(null, "This order is already complete.");}
                 else{
+                    if(orderStatus.equals("Awaiting Order Confirmation")){
                     String id = (String) tblOrderList.getValueAt(row, 0);
                     Order order = business.getOrderDirectory().fetchOrders(id);
                     order.setStatus("Confirmed");
                     JOptionPane.showMessageDialog(null, "The Order has been Confirmed!");
                     populateOrderListTable();
+                    } else {  JOptionPane.showMessageDialog(null, "This order has already been confirmed.");  }
+                    
                     }
                 }
         } else {

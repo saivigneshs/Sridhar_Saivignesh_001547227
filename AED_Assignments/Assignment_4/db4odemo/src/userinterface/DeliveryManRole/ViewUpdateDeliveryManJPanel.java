@@ -68,31 +68,72 @@ public class ViewUpdateDeliveryManJPanel extends javax.swing.JPanel {
         btnEnableUpdate = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        lblDeliEmail.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliEmail.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliEmail.setText("Email ID :");
 
+        lblDeliContact.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliContact.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliContact.setText("Contact No :");
 
+        txtDeliContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliContact.setForeground(new java.awt.Color(0, 51, 51));
+
+        txtDeliName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliName.setForeground(new java.awt.Color(0, 51, 51));
+
+        txtDeliNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliNo.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblDeliName.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliName.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliName.setText("Full Name :");
 
+        lblDeliNo.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblDeliNo.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliNo.setText("Username :");
 
+        txtDeliEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtDeliEmail.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblAddDeli.setBackground(new java.awt.Color(204, 255, 255));
+        lblAddDeli.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblAddDeli.setForeground(new java.awt.Color(0, 51, 51));
         lblAddDeli.setText("Add Delivery Person");
 
+        btnBack1.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack1.setForeground(new java.awt.Color(0, 51, 51));
         btnBack1.setText("Back");
+        btnBack1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack1ActionPerformed(evt);
             }
         });
 
+        btnEnableUpdate.setBackground(new java.awt.Color(204, 255, 255));
+        btnEnableUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnEnableUpdate.setForeground(new java.awt.Color(0, 51, 51));
         btnEnableUpdate.setText("Enable Update");
+        btnEnableUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEnableUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnableUpdateActionPerformed(evt);
             }
         });
 
+        btnSaveChanges.setBackground(new java.awt.Color(204, 255, 255));
+        btnSaveChanges.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnSaveChanges.setForeground(new java.awt.Color(0, 51, 51));
         btnSaveChanges.setText("Save Changes");
+        btnSaveChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveChangesActionPerformed(evt);
@@ -104,38 +145,38 @@ public class ViewUpdateDeliveryManJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDeliEmail)
-                            .addComponent(lblDeliName)
-                            .addComponent(lblDeliContact)
-                            .addComponent(lblDeliNo))
+                        .addGap(113, 113, 113)
+                        .addComponent(lblAddDeli))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblDeliEmail)
+                                    .addComponent(lblDeliName)
+                                    .addComponent(lblDeliContact)
+                                    .addComponent(lblDeliNo)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(btnBack1)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtDeliEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                             .addComponent(txtDeliName, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDeliContact)
-                            .addComponent(txtDeliNo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack1)
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnEnableUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(102, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAddDeli)
-                .addGap(137, 137, 137))
+                            .addComponent(txtDeliNo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSaveChanges, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(btnEnableUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(47, 47, 47)
                 .addComponent(lblAddDeli)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDeliNo)
                     .addComponent(txtDeliNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -147,17 +188,20 @@ public class ViewUpdateDeliveryManJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDeliEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDeliEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDeliContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDeliContact))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEnableUpdate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSaveChanges)
-                    .addComponent(btnBack1))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(btnEnableUpdate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSaveChanges))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDeliContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDeliContact))
+                        .addGap(42, 42, 42)
+                        .addComponent(btnBack1)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

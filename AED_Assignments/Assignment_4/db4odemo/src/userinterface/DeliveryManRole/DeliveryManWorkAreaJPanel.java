@@ -78,13 +78,23 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         btnDeliComplete = new javax.swing.JButton();
         lblDeliDetails = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        refreshJButton.setBackground(new java.awt.Color(204, 255, 255));
+        refreshJButton.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        refreshJButton.setForeground(new java.awt.Color(0, 51, 51));
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);
             }
         });
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(711, 55, -1, -1));
 
+        workRequestJTable.setBackground(new java.awt.Color(204, 255, 255));
+        workRequestJTable.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        workRequestJTable.setForeground(new java.awt.Color(0, 51, 51));
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -113,71 +123,54 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 96, 790, 190));
+
+        btnConfirm.setBackground(new java.awt.Color(204, 255, 255));
+        btnConfirm.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(0, 51, 51));
         btnConfirm.setText("Confirm Order Pickup");
+        btnConfirm.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmActionPerformed(evt);
             }
         });
+        add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 292, 150, 35));
 
+        lblMarkDeli.setBackground(new java.awt.Color(204, 255, 255));
+        lblMarkDeli.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblMarkDeli.setForeground(new java.awt.Color(0, 51, 51));
         lblMarkDeli.setText("Mark Delivery Complete (Enter comments) :");
+        add(lblMarkDeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 365, -1, -1));
 
+        txtComments.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtComments.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtComments, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 362, 150, -1));
+
+        btnDeliComplete.setBackground(new java.awt.Color(204, 255, 255));
+        btnDeliComplete.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnDeliComplete.setForeground(new java.awt.Color(0, 51, 51));
         btnDeliComplete.setText("Delivery Complete");
+        btnDeliComplete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDeliComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeliCompleteActionPerformed(evt);
             }
         });
+        add(btnDeliComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 357, 120, 33));
 
+        lblDeliDetails.setBackground(new java.awt.Color(204, 255, 255));
+        lblDeliDetails.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblDeliDetails.setForeground(new java.awt.Color(0, 51, 51));
         lblDeliDetails.setText("Delivery Details");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(refreshJButton)
-                .addGap(33, 33, 33))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(354, 354, 354)
-                        .addComponent(lblDeliDetails))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(lblMarkDeli)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtComments, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnConfirm))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeliComplete))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lblDeliDetails)
-                .addGap(5, 5, 5)
-                .addComponent(refreshJButton)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfirm)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMarkDeli)
-                    .addComponent(txtComments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeliComplete)))
-        );
+        add(lblDeliDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 25, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
         populateTable();
+        txtComments.setVisible(true);
+        lblMarkDeli.setVisible(true);
+        btnDeliComplete.setVisible(true);
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed

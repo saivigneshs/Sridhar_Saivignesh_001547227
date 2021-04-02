@@ -76,61 +76,139 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
         lblAddCust = new javax.swing.JButton();
         pwCustPass = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAddCustomer.setBackground(new java.awt.Color(204, 255, 255));
+        lblAddCustomer.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblAddCustomer.setForeground(new java.awt.Color(0, 51, 51));
         lblAddCustomer.setText("Add Customer");
+        add(lblAddCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
+        lblCustName.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustName.setForeground(new java.awt.Color(0, 51, 51));
         lblCustName.setText("Enter Full Name :");
+        add(lblCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 72, -1, -1));
 
+        lblCustUserName.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustUserName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustUserName.setForeground(new java.awt.Color(0, 51, 51));
         lblCustUserName.setText("Set Username :");
+        add(lblCustUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 99, -1, -1));
 
+        lblCustPass.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustPass.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustPass.setForeground(new java.awt.Color(0, 51, 51));
         lblCustPass.setText("Set Password :");
+        add(lblCustPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 134, -1, -1));
 
+        lblCustContact.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustContact.setForeground(new java.awt.Color(0, 51, 51));
         lblCustContact.setText("Enter Contact No :");
+        add(lblCustContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 190, -1, -1));
 
+        txtCustName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCustName.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtCustName, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 69, 127, -1));
+
+        txtCustUserName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCustUserName.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtCustUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 96, 127, -1));
+
+        txtCustContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCustContact.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtCustContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 187, 127, -1));
+
+        lblCustEmail.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustEmail.setForeground(new java.awt.Color(0, 51, 51));
         lblCustEmail.setText("Enter Email ID:");
+        add(lblCustEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 222, -1, -1));
 
-        pbCustPassStr.setMaximum(30);
+        txtCustEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCustEmail.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtCustEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 220, 127, -1));
+
+        pbCustPassStr.setBackground(new java.awt.Color(204, 255, 255));
+        pbCustPassStr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pbCustPassStr.setForeground(new java.awt.Color(0, 51, 51));
+        pbCustPassStr.setMaximum(13);
         pbCustPassStr.setMinimum(1);
+        pbCustPassStr.setBorder(null);
         pbCustPassStr.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 pbCustPassStrStateChanged(evt);
             }
         });
+        add(pbCustPassStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 162, 127, 10));
 
+        lblCustAddr.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustAddr.setForeground(new java.awt.Color(0, 51, 51));
         lblCustAddr.setText("Enter Street Address :");
+        add(lblCustAddr, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 251, -1, -1));
 
+        txtCustAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCustAddr.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtCustAddr, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 249, 127, -1));
+
+        lblCustZip.setBackground(new java.awt.Color(204, 255, 255));
+        lblCustZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblCustZip.setForeground(new java.awt.Color(0, 51, 51));
         lblCustZip.setText("Enter Zip Code :");
+        add(lblCustZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 283, -1, -1));
 
+        txtCustZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtCustZip.setForeground(new java.awt.Color(0, 51, 51));
+        add(txtCustZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 280, 127, -1));
+
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 321, 60, -1));
 
         lblCustPhoto.setBackground(new java.awt.Color(222, 236, 236));
         lblCustPhoto.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblCustPhoto.setForeground(new java.awt.Color(0, 102, 102));
         lblCustPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCustPhoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(lblCustPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 94, 102, 129));
 
-        btnCustPhotoUpload.setBackground(new java.awt.Color(222, 236, 236));
-        btnCustPhotoUpload.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCustPhotoUpload.setBackground(new java.awt.Color(204, 255, 255));
+        btnCustPhotoUpload.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnCustPhotoUpload.setForeground(new java.awt.Color(0, 102, 102));
         btnCustPhotoUpload.setText("Upload");
-        btnCustPhotoUpload.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 1, true));
+        btnCustPhotoUpload.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCustPhotoUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCustPhotoUploadActionPerformed(evt);
             }
         });
+        add(btnCustPhotoUpload, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 232, 67, 27));
 
+        lblAddCust.setBackground(new java.awt.Color(204, 255, 255));
+        lblAddCust.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblAddCust.setForeground(new java.awt.Color(0, 51, 51));
         lblAddCust.setText("Add");
+        lblAddCust.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         lblAddCust.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lblAddCustActionPerformed(evt);
             }
         });
+        add(lblAddCust, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 321, 60, -1));
 
+        pwCustPass.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pwCustPass.setForeground(new java.awt.Color(0, 51, 51));
         pwCustPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwCustPassActionPerformed(evt);
@@ -144,99 +222,7 @@ public class AddCustomerJPanel extends javax.swing.JPanel {
                 pwCustPassKeyTyped(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCustUserName)
-                    .addComponent(lblCustName)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCustContact)
-                            .addComponent(lblCustPass)
-                            .addComponent(lblCustEmail)
-                            .addComponent(lblCustAddr)
-                            .addComponent(lblCustZip))))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAddCustomer)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtCustAddr)
-                            .addComponent(pbCustPassStr, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(txtCustUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCustName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCustContact, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCustEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCustZip, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(pwCustPass))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(58, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(118, 118, 118)
-                .addComponent(lblAddCust)
-                .addGap(154, 154, 154))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(lblAddCustomer)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCustName)
-                            .addComponent(txtCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCustUserName)
-                            .addComponent(txtCustUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCustPass)
-                            .addComponent(pwCustPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pbCustPassStr, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCustContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCustContact))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCustEmail)
-                            .addComponent(txtCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCustAddr)
-                            .addComponent(txtCustAddr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCustZip)
-                            .addComponent(txtCustZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblAddCust))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
+        add(pwCustPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 131, 127, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCustPhotoUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustPhotoUploadActionPerformed

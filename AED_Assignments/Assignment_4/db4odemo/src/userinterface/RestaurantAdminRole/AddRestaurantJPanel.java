@@ -35,7 +35,7 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
         this.restDirectory = restDir;
         this.system = system;
         this.container = container;
-        System.out.println("-- "+system);
+      //  System.out.println("-- "+system);
     }
 
     /**
@@ -68,8 +68,19 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
         txtMgrName = new javax.swing.JTextField();
         lblMgrName = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+        setForeground(new java.awt.Color(0, 51, 51));
+
+        txtRestEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestEmail.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblRestEmail.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestEmail.setForeground(new java.awt.Color(0, 51, 51));
         lblRestEmail.setText("Enter Email ID :");
 
+        pwRestPass.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pwRestPass.setForeground(new java.awt.Color(0, 51, 51));
         pwRestPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwRestPassActionPerformed(evt);
@@ -84,21 +95,57 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtRestUserName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestUserName.setForeground(new java.awt.Color(0, 51, 51));
+
+        txtRestName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestName.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblRestContact.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestContact.setForeground(new java.awt.Color(0, 51, 51));
         lblRestContact.setText("Enter Contact No :");
 
+        lblRestPass.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestPass.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestPass.setForeground(new java.awt.Color(0, 51, 51));
         lblRestPass.setText("Set Password :");
 
+        txtRestZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestZip.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblRestUserName.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestUserName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestUserName.setForeground(new java.awt.Color(0, 51, 51));
         lblRestUserName.setText("Set Username :");
 
+        lblRestZip.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestZip.setForeground(new java.awt.Color(0, 51, 51));
         lblRestZip.setText("Enter Zip Code :");
 
+        lblRestName.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestName.setForeground(new java.awt.Color(0, 51, 51));
         lblRestName.setText("Enter Restaurant Name :");
 
+        txtRestAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestAddr.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblAddRest.setBackground(new java.awt.Color(204, 255, 255));
+        lblAddRest.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblAddRest.setForeground(new java.awt.Color(0, 51, 51));
         lblAddRest.setText("Add Restaurant");
 
+        lblRestAddr.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestAddr.setForeground(new java.awt.Color(0, 51, 51));
         lblRestAddr.setText("Enter Street Address :");
 
-        pbRestPassStr.setMaximum(30);
+        pbRestPassStr.setBackground(new java.awt.Color(255, 255, 255));
+        pbRestPassStr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        pbRestPassStr.setForeground(new java.awt.Color(0, 51, 51));
+        pbRestPassStr.setMaximum(13);
         pbRestPassStr.setMinimum(1);
         pbRestPassStr.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -106,20 +153,37 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtRestContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestContact.setForeground(new java.awt.Color(0, 51, 51));
+
+        btnAddRest.setBackground(new java.awt.Color(204, 255, 255));
+        btnAddRest.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnAddRest.setForeground(new java.awt.Color(0, 51, 51));
         btnAddRest.setText("Add");
+        btnAddRest.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddRest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddRestActionPerformed(evt);
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(204, 255, 255));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 51));
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
 
+        txtMgrName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtMgrName.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblMgrName.setBackground(new java.awt.Color(204, 255, 255));
+        lblMgrName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblMgrName.setForeground(new java.awt.Color(0, 51, 51));
         lblMgrName.setText("Manager's Name :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -143,7 +207,7 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(lblMgrName)
                                         .addComponent(lblRestZip, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                        .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtRestAddr)
@@ -154,21 +218,22 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                             .addComponent(txtRestEmail, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtRestZip)
                             .addComponent(pwRestPass, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtMgrName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(btnAddRest))))
+                            .addComponent(txtMgrName, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
+                        .addGap(169, 169, 169)
                         .addComponent(lblAddRest)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAddRest, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(36, 36, 36)
                 .addComponent(lblAddRest)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRestName)
                     .addComponent(txtRestName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,11 +267,11 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMgrName)
                     .addComponent(txtMgrName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnAddRest))
-                .addGap(53, 53, 53))
+                    .addComponent(btnAddRest)
+                    .addComponent(btnBack))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
