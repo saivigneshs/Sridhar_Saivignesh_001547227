@@ -224,7 +224,7 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
             Employee employee = system.getEmployeeDirectory().createEmployee(deliveryMan.getDeliveryID());
             system.setDeliveryManDirectory(deliveryManDirectory);
             UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new DeliverManRole());
-            JOptionPane.showMessageDialog(null, "New Restaurant "+account.getUsername()+" added to the System Successfully!");
+            JOptionPane.showMessageDialog(null, "New Delivery Man "+account.getUsername()+" added to the System Successfully!");
             resetFields();
         }
     }//GEN-LAST:event_btnAddRestActionPerformed
