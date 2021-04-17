@@ -17,7 +17,7 @@ import userinterface.HostRole.HostWorkAreaJPanel;
 
 /**
  *
- * @author Charmi
+ * @author Saivignesh Sridhar
  */
 public class HostRole extends Role {
 

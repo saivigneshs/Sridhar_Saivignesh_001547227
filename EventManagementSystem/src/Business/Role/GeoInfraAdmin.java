@@ -14,7 +14,7 @@ import userinterface.EnterAdminRole.GeoInfraAdminWorkAreaJPanel;
 
 /**
  *
- * @author Anusha
+ * @author Saivignesh Sridhar
  */
 public class GeoInfraAdmin extends Role{
 
