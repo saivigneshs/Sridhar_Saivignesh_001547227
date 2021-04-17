@@ -16,15 +16,9 @@ import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
 import Business.UserAccount.UserAccount;
 import java.awt.Color;
-import java.util.Properties;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -139,7 +133,7 @@ public class EcoSystem extends Organization{
             flag = false;
         }
         if (!flag) {
-            JOptionPane.showMessageDialog(null, "Sorry! " + userName + " already exists in the system!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "" + userName + " already exists! Please try a different Username.", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         } else {
             return true;
@@ -153,7 +147,7 @@ public class EcoSystem extends Organization{
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
                         if (u.getPhone() != null) {
                             if (u.getPhone().equals(phone) && !u.getUsername().equals(username)) {
-                                JOptionPane.showMessageDialog(null, "Sorry! This Contact Number already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "This contact number is already mapped to a User!", "Error!", JOptionPane.ERROR_MESSAGE);
                                 return false;
                             }
                         }
@@ -180,7 +174,7 @@ public class EcoSystem extends Organization{
                     for (UserAccount u : o.getUserAccountDirectory().getUserAccountList()) {
                         if (u.getEmail() != null) {
                             if (u.getEmail().toLowerCase().equals(email.toLowerCase()) && !u.getUsername().equals(username)) {
-                                JOptionPane.showMessageDialog(null, "Sorry! This Email Address already exists in our system", "Error!", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "This Email ID is already mapped to a User!", "Error!", JOptionPane.ERROR_MESSAGE);
                                 return false;
                             }
                         }
@@ -200,7 +194,7 @@ public class EcoSystem extends Organization{
         if (matcher.matches()) {
             return true;
         } else {
-            JOptionPane.showMessageDialog(null, "Please enter valid format of phone! Ex: 9876543210", "Error!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid Phone Format! Sample: 9253365683", "Error!", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
@@ -215,22 +209,22 @@ public class EcoSystem extends Organization{
         if (matcher.matches()) {
             return true;
         } else {
-            JOptionPane.showMessageDialog(null, "Please enter valid format of email! Ex: hello@hello.com", "Error!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Invalid Email ID Format! Sample: abc@xyz.com", "Error!", JOptionPane.ERROR_MESSAGE);
             return false;
         }
     }
 
     public Boolean checkValidPasswordFormat(String password) {
         Pattern p1;
-        p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()�[{}]:;',?/*~$^+=<>]).{8,20}$");
+        p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()�[{}]:;',?/*~$^+=<>]).{6,15}$");
         Matcher m1 = p1.matcher(password);
         boolean b1 = m1.matches();
         if (!b1) {
-            JOptionPane.showMessageDialog(null, "Please enter valid password  format!\nPassword must contain at least one digit [0-9].\n"
-                    + "Password must contain at least one lowercase Latin character [a-z].\n"
-                    + "Password must contain at least one uppercase Latin character [A-Z].\n"
-                    + "Password must contain at least one special character like ! @ # & ( ).\n"
-                    + "Password must contain a length of at least 8 characters and a maximum of 20 characters.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Password does not match the Criteria! \n Criteria: \nPassword must contain at least one digit -> [0-9].\n"
+                    + "Password must contain at least one lowercase character -> [a-z].\n"
+                    + "Password must contain at least one UPPERCASE character -> [A-Z].\n"
+                    + "Password must contain at least one Special character such as ! @ # & ( ).\n"
+                    + "Password must contain a length of at least 6 characters and a maximum of 15 characters.", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         } else {
             return true;
@@ -277,36 +271,6 @@ public class EcoSystem extends Organization{
             return true;
         } else {
             return false;
-        }
-    }
-
-    public static void sendEmailMessage(String emailId, String body) {
-        String to = emailId;
-        String from = "doneverevereply@gmail.com";
-        String pass = "Hello@123";
-
-        Properties properties = System.getProperties();
-        String host = "smtp.gmail.com";
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.ssl.trust", host);
-        properties.put("mail.smtp.user", from);
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.auth", "true");
-
-        Session session = Session.getDefaultInstance(properties);
-        try {
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject("New User Registration");
-            message.setText(body);
-            Transport transport = session.getTransport("smtp");
-            transport.connect(host, from, pass);
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
-            System.out.println("Sent message successfully....");
-        } catch (MessagingException mex) {
-            JOptionPane.showMessageDialog(null, "Invalid Email Address");
         }
     }
 }
