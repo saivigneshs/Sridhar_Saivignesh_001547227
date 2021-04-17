@@ -14,7 +14,7 @@ import userinterface.EnterAdminRole.GeoInfraAdminWorkAreaJPanel;
 
 /**
  *
- * @author Charmi
+ * @author Saivignesh Sridhar
  */
 public class EntertainmentAdmin extends Role{
 

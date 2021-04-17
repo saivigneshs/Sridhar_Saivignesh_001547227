@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author charmi
+ * @author Saivignesh Sridhar
  */
 public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
 

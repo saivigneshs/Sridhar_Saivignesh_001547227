@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Anusha
+ * @author Saivignesh Sridhar
  */
 public abstract class Organization {
 

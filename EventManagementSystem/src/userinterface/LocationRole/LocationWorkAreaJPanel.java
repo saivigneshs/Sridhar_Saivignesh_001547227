@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.HostRole;
+package userinterface.LocationRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class HostWorkAreaJPanel extends javax.swing.JPanel {
+public class LocationWorkAreaJPanel extends javax.swing.JPanel {
 
    private final JPanel userProcessContainer;
     private final EcoSystem system;
@@ -30,7 +30,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public HostWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
+    public LocationWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
         initComponents();
       
         this.userProcessContainer = userProcessContainer;
@@ -60,12 +60,12 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRestaurantList = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
 
         refreshTestJButton.setBackground(new java.awt.Color(204, 255, 255));
         refreshTestJButton.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         refreshTestJButton.setForeground(new java.awt.Color(0, 51, 51));
-        refreshTestJButton.setText("SOS");
+        refreshTestJButton.setText("Refresh");
         refreshTestJButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +77,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setForeground(new java.awt.Color(0, 51, 51));
         enterpriseLabel.setText("Events Conducted");
 
-        tblRestaurantList.setBackground(new java.awt.Color(204, 204, 255));
+        tblRestaurantList.setBackground(new java.awt.Color(204, 255, 255));
         tblRestaurantList.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblRestaurantList.setForeground(new java.awt.Color(0, 51, 51));
         tblRestaurantList.setModel(new javax.swing.table.DefaultTableModel(
@@ -131,8 +131,8 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Charmi Dalal
+ * @author Saivignesh Sridhar
  */
 public class UserRegistrationJPanel extends javax.swing.JPanel {
 
