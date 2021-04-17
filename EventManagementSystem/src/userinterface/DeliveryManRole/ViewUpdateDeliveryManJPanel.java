@@ -5,8 +5,8 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -24,13 +24,13 @@ public class ViewUpdateDeliveryManJPanel extends javax.swing.JPanel {
      */
     public JPanel container;
     public DeliveryMan deliveryMan;
-    public DeliveryManDirectory deliveryManDirectory;
+    public DeliverManDirectory deliveryManDirectory;
     private final EcoSystem system;
     private String currentPhoneNo;
     private String currentMailID;
     
     
-    public ViewUpdateDeliveryManJPanel(EcoSystem system, JPanel container, DeliveryMan deliveryMan, DeliveryManDirectory deliveryManDirectory) {
+    public ViewUpdateDeliveryManJPanel(EcoSystem system, JPanel container, DeliveryMan deliveryMan, DeliverManDirectory deliveryManDirectory) {
         initComponents();
         this.container = container;
         this.deliveryMan = deliveryMan;
@@ -234,37 +234,37 @@ public class ViewUpdateDeliveryManJPanel extends javax.swing.JPanel {
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
         // TODO add your handling code here:
-        String custID = txtDeliNo.getText();
-        String custName = txtDeliName.getText();
-        String custContact = txtDeliContact.getText();
-        String custEmail = txtDeliEmail.getText();
+        String hostID = txtDeliNo.getText();
+        String hostName = txtDeliName.getText();
+        String hostContact = txtDeliContact.getText();
+        String hostEmail = txtDeliEmail.getText();
         boolean allSet = true;
 
-        if( custName.isEmpty() || custContact.isEmpty() || custEmail.isEmpty() ) {
+        if( hostName.isEmpty() || hostContact.isEmpty() || hostEmail.isEmpty() ) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly Enter all the required fields!");
-        }   else if (!system.validateMobileNo(custContact)) {
+        }   else if (!system.validateMobileNo(hostContact)) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly enter a Valid Contact Number.");
-        }   else if (!system.validateEmail(custEmail)) {
+        }   else if (!system.validateEmail(hostEmail)) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly check the entered Email ID format.");
-        }   else if (!deliveryManDirectory.isEmailUnique(custEmail)) {
+        }   else if (!deliveryManDirectory.isEmailUnique(hostEmail)) {
             if(!currentMailID.equals(currentMailID))
             {
                 allSet = false;
-                JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Customer.");
+                JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Host.");
             }
         }
-        if (!deliveryManDirectory.isContactNoUnique(custContact)) {
-            if(!currentPhoneNo.equals(custContact)){
+        if (!deliveryManDirectory.isContactNoUnique(hostContact)) {
+            if(!currentPhoneNo.equals(hostContact)){
                 allSet = false;
-                JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Customer.");
+                JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Host.");
             }
         }
         if(allSet == true){
-            deliveryManDirectory.updateDeliveryMan(custID, custName, custContact, custEmail);
-            JOptionPane.showMessageDialog(null, "Customer details updated!");
+            deliveryManDirectory.updateDeliveryMan(hostID, hostName, hostContact, hostEmail);
+            JOptionPane.showMessageDialog(null, "Host details updated!");
             disableEdit();
         }
     }//GEN-LAST:event_btnSaveChangesActionPerformed

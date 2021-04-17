@@ -4,15 +4,12 @@
  */
 package userinterface.DeliveryManRole;
 
-import Business.DeliveryMan.DeliveryManDirectory;
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.EcoSystem;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
 
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
-import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -31,7 +28,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, DeliveryManDirectory deliveryManDirectory, OrderDirectory orderDirectory) {
+    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, DeliverManDirectory deliveryManDirectory, OrderDirectory orderDirectory) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -52,7 +49,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                     row[2] = order.getSender();
                     row[1] = order.getStatus();
                     row[0] = order.getOrderNo();
-                    row[4] = order.getCustomer().getCustAddr();
+                    row[4] = order.getHost().getHostAddr();
                     row[3] = order.getRestaurant().getRestAddress();;
                     model.addRow(row);
                 }

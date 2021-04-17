@@ -4,14 +4,13 @@
  */
 package userinterface;
 
-import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-import Business.DeliveryMan.DeliveryManDirectory;
+import Business.DeliveryMan.DeliverManDirectory;
+import Business.Host.HostDirectory;
 import Business.Order.OrderDirectory;
 import Business.Order.Menu;
 
-import Business.Organization_;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -30,9 +29,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
-    private final CustomerDirectory customerDirectory;
+    private final HostDirectory hostDirectory;
     private final RestaurantDirectory restaurantDirectory;
-    private final DeliveryManDirectory deliveryManDirectory;
+    private final DeliverManDirectory deliveryManDirectory;
     private final Menu menu;
     private final OrderDirectory orderDirectory;
     
@@ -40,10 +39,10 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         
-        if (system.getCustomerDirectory() == null) {
-            this.customerDirectory = new CustomerDirectory();
+        if (system.getHostDirectory() == null) {
+            this.hostDirectory = new HostDirectory();
         } else {
-            this.customerDirectory = system.getCustomerDirectory();
+            this.hostDirectory = system.getHostDirectory();
         }
         
         if (system.getRestaurantDirectory() == null) {
@@ -54,7 +53,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         
         if (system.getDeliveryManDirectory() == null) {
-            deliveryManDirectory = new DeliveryManDirectory();
+            deliveryManDirectory = new DeliverManDirectory();
 
         } else {
             this.deliveryManDirectory = system.getDeliveryManDirectory();
@@ -202,7 +201,7 @@ public class MainJFrame extends javax.swing.JFrame {
            
         }else{
             CardLayout layout = (CardLayout)container.getLayout();
-            container.add("workarea",userAcc.getRole().createWorkArea(container, userAcc, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menu, orderDirectory));
+            container.add("workarea",userAcc.getRole().createWorkArea(container, userAcc, system, hostDirectory, restaurantDirectory, deliveryManDirectory, menu, orderDirectory));
             layout.next(container);
         }
         loginJButton.setEnabled(false);

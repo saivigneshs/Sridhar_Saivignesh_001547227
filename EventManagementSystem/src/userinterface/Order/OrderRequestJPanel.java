@@ -5,9 +5,9 @@
  */
 package userinterface.Order;
 
-import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryManDirectory;
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.EcoSystem;
+import Business.Host.HostDirectory;
 import Business.Order.Menu;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
@@ -32,7 +32,7 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form OrderRequestJPanel
      */
-    public OrderRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
+    public OrderRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, HostDirectory hostDirectory, RestaurantDirectory restaurantDirectory, DeliverManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
         initComponents();
         this.system = system;
         this.userAccount = account;
@@ -45,7 +45,7 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         model.setRowCount(0);
         for (Order order : orderDirectory.getOrderDir()) {
-            if (order.getCustomer().getCustID().equalsIgnoreCase(userAccount.getEmployee().getName())) {
+            if (order.getHost().getHostID().equalsIgnoreCase(userAccount.getEmployee().getName())) {
                 Object[] row = new Object[9];
                 row[8] = order.getMessage();
                 row[6] = (order.getDeliveryMan() == null) ? "Awaiting Confirmation" : order.getDeliveryMan().getDeliName();
@@ -91,7 +91,7 @@ public class OrderRequestJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Restaurant Name", "Order Id", "Item", "Status", "Quantity", "Total Cost", "Delivery Man", "DeliveryMan Message", "Customer Feedback"
+                "Restaurant Name", "Order Id", "Item", "Status", "Quantity", "Total Cost", "Delivery Man", "DeliveryMan Message", "Host Feedback"
             }
         ) {
             Class[] types = new Class [] {

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.HostRole;
 
-import Business.Customer.Customer;
-import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Host.Host;
+import Business.Host.HostDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Image;
@@ -26,49 +26,47 @@ import javax.swing.JPanel;
  *
  * @author Saivignesh Sridhar
  */
-public class ViewUpdateCustomerJPanel extends javax.swing.JPanel {
+public class ViewUpdateHostJPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ViewCustomerJPanel
-     */
     
-    public CustomerDirectory customerDirectory;
+    
+    public HostDirectory hostDirectory;
     public JPanel container;
-    public Customer customer;
+    public Host host;
     private final EcoSystem system;
     private String currentPhoneNo;
     private String currentMailID;
     
-    public ViewUpdateCustomerJPanel(EcoSystem system, JPanel container, Customer customer, CustomerDirectory customerDirectory) {
+    public ViewUpdateHostJPanel(EcoSystem system, JPanel container, Host host, HostDirectory hostDirectory) {
         
         initComponents();
-        this.customerDirectory = customerDirectory;
+        this.hostDirectory = hostDirectory;
         this.container = container;
-        this.customer = customer;
+        this.host = host;
         this.system = system;
-        this.currentMailID = customer.getCustEmail();
-        this.currentPhoneNo = customer.getCustContact(); 
+        this.currentMailID = host.getHostEmail();
+        this.currentPhoneNo = host.getHostContact(); 
         
-        txtCustID.setText(customer.getCustID());
-        txtCustAddr.setText(customer.getCustAddr());
-        txtCustContact.setText(customer.getCustContact());
-        txtCustEmail.setText(customer.getCustEmail());
-        txtCustName.setText(customer.getCustName());
-        txtCustZip.setText(customer.getCustZipCode());
-        Image imPhoto = customer.getCustPhoto();
+        txtHostID.setText(host.getHostID());
+        txtHostAddr.setText(host.getHostAddr());
+        txtHostContact.setText(host.getHostContact());
+        txtHostEmail.setText(host.getHostEmail());
+        txtHostName.setText(host.getHostName());
+        txtHostZip.setText(host.getHostZipCode());
+        Image imPhoto = host.getHostPhoto();
         if(imPhoto!=null){
         ImageIcon imIcon = new ImageIcon(imPhoto);
-        lblCustPhoto.setIcon(imIcon);
+        lblHostPhoto.setIcon(imIcon);
         }
         disableEdit();
     }
 private void disableEdit(){
-    txtCustID.setEditable(false);
-    txtCustAddr.setEditable(false);
-    txtCustContact.setEditable(false);
-    txtCustEmail.setEditable(false);
-    txtCustName.setEditable(false);
-    txtCustZip.setEditable(false);
+    txtHostID.setEditable(false);
+    txtHostAddr.setEditable(false);
+    txtHostContact.setEditable(false);
+    txtHostEmail.setEditable(false);
+    txtHostName.setEditable(false);
+    txtHostZip.setEditable(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,88 +77,88 @@ private void disableEdit(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCustPhoto = new javax.swing.JLabel();
-        btnCustPhotoUpload = new javax.swing.JButton();
-        txtCustContact = new javax.swing.JTextField();
-        lblCustEmail = new javax.swing.JLabel();
-        txtCustEmail = new javax.swing.JTextField();
+        lblHostPhoto = new javax.swing.JLabel();
+        btnHostPhotoUpload = new javax.swing.JButton();
+        txtHostContact = new javax.swing.JTextField();
+        lblHostEmail = new javax.swing.JLabel();
+        txtHostEmail = new javax.swing.JTextField();
         lblViewUpdateCust = new javax.swing.JLabel();
-        lblCustAddr = new javax.swing.JLabel();
-        lblCustName = new javax.swing.JLabel();
-        txtCustAddr = new javax.swing.JTextField();
-        lblCustZip = new javax.swing.JLabel();
-        txtCustZip = new javax.swing.JTextField();
-        lblCustContact = new javax.swing.JLabel();
-        txtCustName = new javax.swing.JTextField();
+        lblHostAddr = new javax.swing.JLabel();
+        lblHostName = new javax.swing.JLabel();
+        txtHostAddr = new javax.swing.JTextField();
+        lblHostZip = new javax.swing.JLabel();
+        txtHostZip = new javax.swing.JTextField();
+        lblHostContact = new javax.swing.JLabel();
+        txtHostName = new javax.swing.JTextField();
         btnBack1 = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
         btnEnableUpdate = new javax.swing.JButton();
-        lblCustID = new javax.swing.JLabel();
-        txtCustID = new javax.swing.JTextField();
+        lblHostID = new javax.swing.JLabel();
+        txtHostID = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 255, 255));
 
-        lblCustPhoto.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustPhoto.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustPhoto.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCustPhoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblHostPhoto.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostPhoto.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostPhoto.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHostPhoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnCustPhotoUpload.setBackground(new java.awt.Color(204, 255, 255));
-        btnCustPhotoUpload.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        btnCustPhotoUpload.setForeground(new java.awt.Color(0, 51, 51));
-        btnCustPhotoUpload.setText("Upload");
-        btnCustPhotoUpload.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCustPhotoUpload.addActionListener(new java.awt.event.ActionListener() {
+        btnHostPhotoUpload.setBackground(new java.awt.Color(204, 255, 255));
+        btnHostPhotoUpload.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
+        btnHostPhotoUpload.setForeground(new java.awt.Color(0, 51, 51));
+        btnHostPhotoUpload.setText("Upload");
+        btnHostPhotoUpload.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHostPhotoUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustPhotoUploadActionPerformed(evt);
+                btnHostPhotoUploadActionPerformed(evt);
             }
         });
 
-        txtCustContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtCustContact.setForeground(new java.awt.Color(0, 51, 51));
+        txtHostContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHostContact.setForeground(new java.awt.Color(0, 51, 51));
 
-        lblCustEmail.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustEmail.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustEmail.setText("Email ID:");
+        lblHostEmail.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostEmail.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostEmail.setText("Email ID:");
 
-        txtCustEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtCustEmail.setForeground(new java.awt.Color(0, 51, 51));
+        txtHostEmail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHostEmail.setForeground(new java.awt.Color(0, 51, 51));
 
         lblViewUpdateCust.setBackground(new java.awt.Color(204, 255, 255));
         lblViewUpdateCust.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblViewUpdateCust.setForeground(new java.awt.Color(0, 51, 51));
-        lblViewUpdateCust.setText("Customer Details");
+        lblViewUpdateCust.setText("Host Details");
 
-        lblCustAddr.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustAddr.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustAddr.setText("Street Address :");
+        lblHostAddr.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostAddr.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostAddr.setText("Street Address :");
 
-        lblCustName.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustName.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustName.setText("Full Name :");
+        lblHostName.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostName.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostName.setText("Full Name :");
 
-        txtCustAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtCustAddr.setForeground(new java.awt.Color(0, 51, 51));
+        txtHostAddr.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHostAddr.setForeground(new java.awt.Color(0, 51, 51));
 
-        lblCustZip.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustZip.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustZip.setText("Zip Code :");
+        lblHostZip.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostZip.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostZip.setText("Zip Code :");
 
-        txtCustZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtCustZip.setForeground(new java.awt.Color(0, 51, 51));
+        txtHostZip.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHostZip.setForeground(new java.awt.Color(0, 51, 51));
 
-        lblCustContact.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustContact.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustContact.setText("Contact No :");
+        lblHostContact.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostContact.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostContact.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostContact.setText("Contact No :");
 
-        txtCustName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtCustName.setForeground(new java.awt.Color(0, 51, 51));
+        txtHostName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHostName.setForeground(new java.awt.Color(0, 51, 51));
 
         btnBack1.setBackground(new java.awt.Color(204, 255, 255));
         btnBack1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -195,13 +193,13 @@ private void disableEdit(){
             }
         });
 
-        lblCustID.setBackground(new java.awt.Color(204, 255, 255));
-        lblCustID.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblCustID.setForeground(new java.awt.Color(0, 51, 51));
-        lblCustID.setText("Customer ID :");
+        lblHostID.setBackground(new java.awt.Color(204, 255, 255));
+        lblHostID.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblHostID.setForeground(new java.awt.Color(0, 51, 51));
+        lblHostID.setText("Host ID :");
 
-        txtCustID.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtCustID.setForeground(new java.awt.Color(0, 51, 51));
+        txtHostID.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHostID.setForeground(new java.awt.Color(0, 51, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -215,19 +213,19 @@ private void disableEdit(){
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(110, 110, 110)
-                                    .addComponent(lblCustEmail))
+                                    .addComponent(lblHostEmail))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addContainerGap()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblCustID, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblCustName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblCustContact, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                        .addComponent(lblHostID, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblHostName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblHostContact, javax.swing.GroupLayout.Alignment.TRAILING))))
                             .addGap(42, 42, 42)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCustID, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCustName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCustContact, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtHostID, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtHostName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtHostContact, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtHostEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(70, 70, 70)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,19 +237,19 @@ private void disableEdit(){
                                         .addComponent(btnSaveChanges, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblCustAddr)
-                                        .addComponent(lblCustZip))
+                                        .addComponent(lblHostAddr)
+                                        .addComponent(lblHostZip))
                                     .addGap(41, 41, 41)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtCustAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtCustZip, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(txtHostAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtHostZip, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnHostPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblHostPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -265,33 +263,33 @@ private void disableEdit(){
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(58, 58, 58)
-                                .addComponent(lblCustContact, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblHostContact, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCustID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCustID))
+                                    .addComponent(txtHostID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblHostID))
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCustName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCustName))
+                                    .addComponent(txtHostName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblHostName))
                                 .addGap(7, 7, 7)
-                                .addComponent(txtCustContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtHostContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCustEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCustEmail))))
+                                    .addComponent(txtHostEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblHostEmail))))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCustAddr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCustAddr))
+                            .addComponent(txtHostAddr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHostAddr))
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCustZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCustZip)))
+                            .addComponent(txtHostZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHostZip)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblHostPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnHostPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17)
                 .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +303,7 @@ private void disableEdit(){
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCustPhotoUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustPhotoUploadActionPerformed
+    private void btnHostPhotoUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHostPhotoUploadActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.showOpenDialog(null);
@@ -315,22 +313,22 @@ private void disableEdit(){
             File fileImage = fileChooser.getSelectedFile();
             bfImage = ImageIO.read(new File(fileImage.getAbsolutePath()));
         } catch (IOException ex) {
-            Logger.getLogger(AddCustomerJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddHostJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Image imPhoto = bfImage.getScaledInstance(lblCustPhoto.getWidth(), lblCustPhoto.getHeight(),Image.SCALE_SMOOTH);
+        Image imPhoto = bfImage.getScaledInstance(lblHostPhoto.getWidth(), lblHostPhoto.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon imIcon = new ImageIcon(imPhoto);
 
-        lblCustPhoto.setIcon(imIcon);
-        customer.setCustPhoto(imPhoto);
-    }//GEN-LAST:event_btnCustPhotoUploadActionPerformed
+        lblHostPhoto.setIcon(imIcon);
+        host.setHostPhoto(imPhoto);
+    }//GEN-LAST:event_btnHostPhotoUploadActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
         container.remove(this);
         Component[] componentArray = container.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageCustomersJPanel manageCustomersJPanel = (ManageCustomersJPanel) component;
-        manageCustomersJPanel.populateCustomerListTable();
+        ManageHostJPanel manageHostJPanel = (ManageHostJPanel) component;
+        manageHostJPanel.populateHostListTable();
 
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
@@ -339,72 +337,72 @@ private void disableEdit(){
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
         // TODO add your handling code here:
-        String custID = txtCustID.getText();
-        String custName = txtCustName.getText();
-        String custContact = txtCustContact.getText();
-        String custAddr = txtCustAddr.getText();
-        String custZipCode = txtCustZip.getText();
-        String custEmail = txtCustEmail.getText();
+        String hostID = txtHostID.getText();
+        String hostName = txtHostName.getText();
+        String hostContact = txtHostContact.getText();
+        String hostAddr = txtHostAddr.getText();
+        String hostZipCode = txtHostZip.getText();
+        String hostEmail = txtHostEmail.getText();
         boolean allSet = true;
         
-        if( custName.isEmpty() || custContact.isEmpty() || custAddr.isEmpty() || custZipCode.isEmpty() || custEmail.isEmpty() ) {
+        if( hostName.isEmpty() || hostContact.isEmpty() || hostAddr.isEmpty() || hostZipCode.isEmpty() || hostEmail.isEmpty() ) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly Enter all the required fields!");
-        }   else if (!system.validateMobileNo(custContact)) {
+        }   else if (!system.validateMobileNo(hostContact)) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly enter a Valid Contact Number.");
-        }   else if (!system.validateEmail(custEmail)) {
+        }   else if (!system.validateEmail(hostEmail)) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly check the entered Email ID format.");
-        }   else if (!customerDirectory.isEmailUnique(custEmail)) {
+        }   else if (!hostDirectory.isEmailUnique(hostEmail)) {
             if(!currentMailID.equals(currentMailID))
             {
                 allSet = false;
-                JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Customer.");
+                JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Host.");
             }
         }
-        if (!customerDirectory.isContactNoUnique(custContact)) {
-            if(!currentPhoneNo.equals(custContact)){
+        if (!hostDirectory.isContactNoUnique(hostContact)) {
+            if(!currentPhoneNo.equals(hostContact)){
                  allSet = false;
-                JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Customer.");
+                JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Host.");
             }
         }
         if(allSet == true){
-            customerDirectory.updateCustomer(custID, custName, custContact, custAddr, custZipCode, custEmail);
-            JOptionPane.showMessageDialog(null, "Customer details updated!");
+            hostDirectory.updateHost(hostID, hostName, hostContact, hostAddr, hostZipCode, hostEmail);
+            JOptionPane.showMessageDialog(null, "Host details updated!");
             disableEdit();
         }
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
         // TODO add your handling code here:
-    txtCustAddr.setEditable(true);
-    txtCustContact.setEditable(true);
-    txtCustEmail.setEditable(true);
-    txtCustName.setEditable(true);
-    txtCustZip.setEditable(true);
+    txtHostAddr.setEditable(true);
+    txtHostContact.setEditable(true);
+    txtHostEmail.setEditable(true);
+    txtHostName.setEditable(true);
+    txtHostZip.setEditable(true);
     btnEnableUpdate.setEnabled(false);
     }//GEN-LAST:event_btnEnableUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack1;
-    private javax.swing.JButton btnCustPhotoUpload;
     private javax.swing.JButton btnEnableUpdate;
+    private javax.swing.JButton btnHostPhotoUpload;
     private javax.swing.JButton btnSaveChanges;
-    private javax.swing.JLabel lblCustAddr;
-    private javax.swing.JLabel lblCustContact;
-    private javax.swing.JLabel lblCustEmail;
-    private javax.swing.JLabel lblCustID;
-    private javax.swing.JLabel lblCustName;
-    private javax.swing.JLabel lblCustPhoto;
-    private javax.swing.JLabel lblCustZip;
+    private javax.swing.JLabel lblHostAddr;
+    private javax.swing.JLabel lblHostContact;
+    private javax.swing.JLabel lblHostEmail;
+    private javax.swing.JLabel lblHostID;
+    private javax.swing.JLabel lblHostName;
+    private javax.swing.JLabel lblHostPhoto;
+    private javax.swing.JLabel lblHostZip;
     private javax.swing.JLabel lblViewUpdateCust;
-    private javax.swing.JTextField txtCustAddr;
-    private javax.swing.JTextField txtCustContact;
-    private javax.swing.JTextField txtCustEmail;
-    private javax.swing.JTextField txtCustID;
-    private javax.swing.JTextField txtCustName;
-    private javax.swing.JTextField txtCustZip;
+    private javax.swing.JTextField txtHostAddr;
+    private javax.swing.JTextField txtHostContact;
+    private javax.swing.JTextField txtHostEmail;
+    private javax.swing.JTextField txtHostID;
+    private javax.swing.JTextField txtHostName;
+    private javax.swing.JTextField txtHostZip;
     // End of variables declaration//GEN-END:variables
 }

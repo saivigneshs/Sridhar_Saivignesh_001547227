@@ -6,11 +6,16 @@
 package Business;
 
 
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.EnterpriseDirectory;
+import Business.Host.HostDirectory;
 import Business.Network.Network;
+import Business.Order.Menu;
+import Business.Order.OrderDirectory;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
@@ -19,12 +24,11 @@ import java.awt.Color;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+//import javax.mail.MessagingException;
+//import javax.mail.Session;
+//import javax.mail.Transport;
+//import javax.mail.internet.InternetAddress;
+//import javax.mail.internet.MimeMessage;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -39,6 +43,11 @@ public class EcoSystem extends Organization{
     private static EcoSystem business;
     private EnterpriseDirectory enterpriseDirectory;
     private OrganizationDirectory organizationDirectory;
+    private RestaurantDirectory restaurantDirectory;
+    private OrderDirectory orderDirectory;
+    private Menu menu;
+    private HostDirectory hostDirectory;
+    private DeliverManDirectory deliveryManDirectory;
    
 
     private ArrayList<Network> networkList;
@@ -49,6 +58,46 @@ public class EcoSystem extends Organization{
 
     public void setOrganizationDirectory(OrganizationDirectory organizationDirectory) {
         this.organizationDirectory = organizationDirectory;
+    }
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public OrderDirectory getOrderDirectory() {
+        return orderDirectory;
+    }
+
+    public void setOrderDirectory(OrderDirectory orderDirectory) {
+        this.orderDirectory = orderDirectory;
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public HostDirectory getHostDirectory() {
+        return hostDirectory;
+    }
+
+    public void setHostDirectory(HostDirectory hostDirectory) {
+        this.hostDirectory = hostDirectory;
+    }
+
+    public DeliverManDirectory getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliverManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
     }
 
     public static EcoSystem getInstance() {
@@ -95,6 +144,24 @@ public class EcoSystem extends Organization{
 
     public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
+    public Boolean validateMobileNo(String phoneNo)
+    {
+        String regex = "^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$";
+        Pattern pattern = Pattern.compile(regex);
+
+        Matcher matcher = pattern.matcher(phoneNo);
+        return (matcher.matches());
+       
+    }
+    public Boolean validateEmail(String email)
+    {
+        String regex = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+
+        Matcher matcher = pattern.matcher(email);
+        return (matcher.matches());
     }
 
     public boolean checkIfNetworkIsUnique(String networkName) {

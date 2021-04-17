@@ -5,8 +5,8 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Role.DeliverManRole;
@@ -25,10 +25,10 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddDeliveryManJPanel
      */
-    private final DeliveryManDirectory deliveryManDirectory;
+    private final DeliverManDirectory deliveryManDirectory;
     private final EcoSystem system;
     private final JPanel container;
-    public AddDeliveryManJPanel(JPanel container, EcoSystem system, DeliveryManDirectory deliveryManDirectory) {
+    public AddDeliveryManJPanel(JPanel container, EcoSystem system, DeliverManDirectory deliveryManDirectory) {
         initComponents();
         this.deliveryManDirectory = deliveryManDirectory;
         this.system = system;
@@ -223,7 +223,7 @@ public class AddDeliveryManJPanel extends javax.swing.JPanel {
             deliveryManDirectory.addDeliveryMan(deliveryMan);
             Employee employee = system.getEmployeeDirectory().createEmployee(deliveryMan.getDeliveryID());
             system.setDeliveryManDirectory(deliveryManDirectory);
-            UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new DeliverManRole());
+            UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new DeliverManRole() {});
             JOptionPane.showMessageDialog(null, "New Delivery Man "+account.getUsername()+" added to the System Successfully!");
             resetFields();
         }

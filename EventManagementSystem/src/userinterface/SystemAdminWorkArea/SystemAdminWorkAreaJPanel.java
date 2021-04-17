@@ -6,15 +6,17 @@
 package userinterface.SystemAdminWorkArea;
 
 
-import Business.Organization;
+import Business.DeliveryMan.DeliverManDirectory;
+import Business.EcoSystem;
+import Business.Host.HostDirectory;
+import Business.Order.Menu;
+import Business.Order.OrderDirectory;
+import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
-import java.util.ArrayList;
 import javax.swing.JPanel;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-import userinterface.CustomerRole.ManageCustomersJPanel;
 import userinterface.DeliveryManRole.ManageDeliveryManJPanel;
 import userinterface.RestaurantAdminRole.ManageRestaurantsJPanel;
+import userinterface.HostRole.ManageHostJPanel;
 
 /**
  *
@@ -27,16 +29,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
-    CustomerDirectory customerDirectory;
+    HostDirectory hostDirectory;
     RestaurantDirectory restaurantDirectory;
-    DeliveryManDirectory deliveryManDirectory;
+    DeliverManDirectory deliveryManDirectory;
     Menu menuDirectory;
     OrderDirectory orderDirectory;
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer,EcoSystem ecosystem, HostDirectory hostDirectory, RestaurantDirectory restaurantDirectory, DeliverManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        this.customerDirectory = customerDirectory;
+        this.hostDirectory = hostDirectory;
         this.restaurantDirectory = restaurantDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.menuDirectory = menuDirectory;
@@ -144,8 +146,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCustomersActionPerformed
-        ManageCustomersJPanel manageCustomersJPanel = new ManageCustomersJPanel(userProcessContainer, ecosystem, customerDirectory);
-        userProcessContainer.add("manageCustomersJPanel", manageCustomersJPanel);
+        ManageHostJPanel manageHostJPanel = new ManageHostJPanel(userProcessContainer, ecosystem, hostDirectory);
+        userProcessContainer.add("manageHostJPanel", manageHostJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageCustomersActionPerformed

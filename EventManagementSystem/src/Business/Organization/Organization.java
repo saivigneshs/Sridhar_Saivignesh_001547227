@@ -34,7 +34,9 @@ public abstract class Organization {
         Food("Food Organization"),
         Beverages("Beverages Organization"),
         Delivery("Delivery Organization"),
-        ER("ER Organization");
+        ER("ER Organization"),
+        Deliveryman("DeliveryMAN"),
+        RestaurantAdmin("RestaurantAdmin");
 
         private String value;
 

@@ -297,40 +297,40 @@ public class AddRestaurantJPanel extends javax.swing.JPanel {
     private void btnAddRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRestActionPerformed
         // TODO add your handling code here:
 
-        String custName = txtRestName.getText();
-        String custContact = txtRestContact.getText();
-        String custAddr = txtRestAddr.getText();
-        String custZipCode = txtRestZip.getText();
-        String custUserName = txtRestUserName.getText();
-        String custPass = String.valueOf(pwRestPass.getPassword());
-        String custEmail = txtRestEmail.getText();
+        String hostName = txtRestName.getText();
+        String hostContact = txtRestContact.getText();
+        String hostAddr = txtRestAddr.getText();
+        String hostZipCode = txtRestZip.getText();
+        String hostUserName = txtRestUserName.getText();
+        String hostPass = String.valueOf(pwRestPass.getPassword());
+        String hostEmail = txtRestEmail.getText();
         String mgrName = txtMgrName.getText();
 
-        if( custName.isEmpty() || custContact.isEmpty() || custAddr.isEmpty() || custZipCode.isEmpty() ||
-            custUserName.isEmpty() || custPass.isEmpty() || custEmail.isEmpty() || mgrName.isEmpty() ) {
+        if( hostName.isEmpty() || hostContact.isEmpty() || hostAddr.isEmpty() || hostZipCode.isEmpty() ||
+            hostUserName.isEmpty() || hostPass.isEmpty() || hostEmail.isEmpty() || mgrName.isEmpty() ) {
             JOptionPane.showMessageDialog(null, "Kindly Enter all the required fields!");
-        }   else if (!system.validateMobileNo(custContact)) {
+        }   else if (!system.validateMobileNo(hostContact)) {
             JOptionPane.showMessageDialog(null, "Kindly enter a Valid Contact Number.");
-        }   else if (!system.validateEmail(custEmail)) {
+        }   else if (!system.validateEmail(hostEmail)) {
             JOptionPane.showMessageDialog(null, "Kindly check the entered Email ID format.");
-        }   else if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(custUserName)) {
+        }   else if (!system.getUserAccountDirectory().checkIfUsernameIsUnique(hostUserName)) {
             JOptionPane.showMessageDialog(null, "Entered User Name is already mapped to another Restaurant");
-        }   else if (!restDirectory.isEmailUnique(custEmail)) {
+        }   else if (!restDirectory.isEmailUnique(hostEmail)) {
             JOptionPane.showMessageDialog(null, "Entered Email ID is already mapped to another Restaurant.");
-        }   else if (!restDirectory.isContactNoUnique(custContact)) {
+        }   else if (!restDirectory.isContactNoUnique(hostContact)) {
             JOptionPane.showMessageDialog(null, "Entered Contact No is already mapped to another Restaurant.");
         }   else {
 
-            rest.setRestName(custName);
-            rest.setRestAddress(custAddr);
-            rest.setRestContact(custContact);
-            rest.setRestEmail(custEmail);
-            rest.setRestZipCode(custZipCode);
+            rest.setRestName(hostName);
+            rest.setRestAddress(hostAddr);
+            rest.setRestContact(hostContact);
+            rest.setRestEmail(hostEmail);
+            rest.setRestZipCode(hostZipCode);
             rest.setRestManager(mgrName);
             restDirectory.addRestaurant(rest);
             Employee employee = system.getEmployeeDirectory().createEmployee(rest.getRestNo() );
             system.setRestaurantDirectory(restDirectory);
-            UserAccount account = system.getUserAccountDirectory().createUserAccount(custUserName, custPass, employee, new AdminRole());
+            UserAccount account = system.getUserAccountDirectory().createUserAccount(hostUserName, hostPass, employee, new AdminRole() {});
             JOptionPane.showMessageDialog(null, "New Restaurant "+account.getUsername()+" added to the System Successfully!");
             clearAllFields();
         }

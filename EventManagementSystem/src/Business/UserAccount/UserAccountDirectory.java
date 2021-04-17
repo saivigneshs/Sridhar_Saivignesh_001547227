@@ -45,6 +45,15 @@ public class UserAccountDirectory {
         return userAccount;
     }
 
+    public UserAccount getUserByEmployeeNo(String employeeNo) {
+        for (UserAccount user : userAccountList) {
+            if (user.getEmployee().getName().equalsIgnoreCase(employeeNo)) {
+                return user;
+            }
+        }
+        return null;
+    }
+    
     public boolean checkIfUsernameIsUnique(String username) {
         for (UserAccount ua : userAccountList) {
             if (ua.getUsername().equals(username)) {

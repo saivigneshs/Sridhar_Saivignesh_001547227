@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.HostRole;
 
-import Business.Customer.Customer;
-import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryManDirectory;
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.EcoSystem;
+import Business.Host.Host;
+import Business.Host.HostDirectory;
 import Business.Order.Menu;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
@@ -16,8 +16,6 @@ import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
-import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -28,26 +26,26 @@ import userinterface.Order.OrderRequestJPanel;
  *
  * @author raunak
  */
-public class CustomerAreaJPanel extends javax.swing.JPanel {
+public class HostAreaJPanel extends javax.swing.JPanel {
 
    private final JPanel userProcessContainer;
     private final EcoSystem system;
     private final UserAccount userAccount;
-    private final CustomerDirectory customerDirectory;
+    private final HostDirectory hostDirectory;
     private final RestaurantDirectory restaurantDirectory;
-    private final DeliveryManDirectory deliveryManDirectory;
+    private final DeliverManDirectory deliveryManDirectory;
     private final Menu menuDirectory;
     private final OrderDirectory orderDirectory;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, Menu menuDirectory,OrderDirectory orderDirectory) {
+    public HostAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, HostDirectory hostDirectory, RestaurantDirectory restaurantDirectory, DeliverManDirectory deliveryManDirectory, Menu menuDirectory,OrderDirectory orderDirectory) {
         initComponents();
       
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
-        this.customerDirectory = customerDirectory;
+        this.hostDirectory = hostDirectory;
         this.restaurantDirectory = restaurantDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.menuDirectory = menuDirectory;
@@ -228,7 +226,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             if (row >= 0) {
                 int quantity = Integer.parseInt(cmboxQtyCount.getSelectedItem().toString());
                 Restaurant restaurant = restaurantDirectory.getRestaurant(menuDirectory.getOrderItemByKey(row).getRestaurantNo());
-                Customer customer = customerDirectory.getCustomer(userAccount.getEmployee().getName());
+                Host host = hostDirectory.getHost(userAccount.getEmployee().getName());
                 OrderItem item = menuDirectory.getOrderItemByKey(row);
                 String status = "Awaiting Order Confirmation";
 
@@ -236,7 +234,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 orderRequest.setOrderNo("Order " + (orderDirectory.getOrderDir().size()));
                 orderRequest.setOrderItem(item);
                 orderRequest.setRestaurant(restaurant);
-                orderRequest.setCustomer(customer);
+                orderRequest.setHost(host);
                 orderRequest.setQuantity(quantity);
                 orderRequest.setMessage("Order Placed");
                 orderRequest.setSender(userAccount);
@@ -253,7 +251,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private void btnViewOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrdersActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        OrderRequestJPanel orderRequest = new OrderRequestJPanel(userProcessContainer, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory,orderDirectory);
+        OrderRequestJPanel orderRequest = new OrderRequestJPanel(userProcessContainer, userAccount, system, hostDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory,orderDirectory);
         userProcessContainer.add(orderRequest);
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewOrdersActionPerformed

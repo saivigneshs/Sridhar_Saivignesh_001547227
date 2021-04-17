@@ -5,10 +5,10 @@
  */
 package userinterface.DeliveryManRole;
 
-import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
+import Business.Host.HostDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -27,11 +27,11 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
      */
     JPanel container;
     EcoSystem system;
-    CustomerDirectory customerDirectory;
+    HostDirectory hostDirectory;
     RestaurantDirectory restaurantDirectory;
-    DeliveryManDirectory deliveryManDirectory;
+    DeliverManDirectory deliveryManDirectory;
     
-    public ManageDeliveryManJPanel(JPanel container, EcoSystem system, DeliveryManDirectory deliveryManDirectory) {
+    public ManageDeliveryManJPanel(JPanel container, EcoSystem system, DeliverManDirectory deliveryManDirectory) {
         initComponents();
         this.container = container;
         this.system = system;

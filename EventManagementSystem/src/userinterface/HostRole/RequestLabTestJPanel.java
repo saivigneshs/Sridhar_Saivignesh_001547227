@@ -2,16 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.HostRole;
 
-import Business.EcoSystem;
-import Business.Organization_;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -92,7 +87,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        CustomerAreaJPanel dwjp = (CustomerAreaJPanel) component;
+        HostAreaJPanel dwjp = (HostAreaJPanel) component;
        // dwjp.populateRequestTable();
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

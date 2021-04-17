@@ -236,20 +236,20 @@ private void disableEdit(){
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
         // TODO add your handling code here:
         
-        String custName = txtRestName1.getText();
-        String custContact = txtRestContact1.getText();
-        String custAddr = txtRestContact1.getText();
-        String custZipCode = txtRestZip1.getText();
-        String custEmail = txtRestEmail1.getText();
+        String hostName = txtRestName1.getText();
+        String hostContact = txtRestContact1.getText();
+        String hostAddr = txtRestContact1.getText();
+        String hostZipCode = txtRestZip1.getText();
+        String hostEmail = txtRestEmail1.getText();
         boolean allSet = true;
 
-        if( custName.isEmpty() || custContact.isEmpty() || custAddr.isEmpty() || custZipCode.isEmpty() || custEmail.isEmpty() ) {
+        if( hostName.isEmpty() || hostContact.isEmpty() || hostAddr.isEmpty() || hostZipCode.isEmpty() || hostEmail.isEmpty() ) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly Enter all the required fields!");
-        }   else if (!system.validateMobileNo(custContact)) {
+        }   else if (!system.validateMobileNo(hostContact)) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly enter a Valid Contact Number.");
-        }   else if (!system.validateEmail(custEmail)) {
+        }   else if (!system.validateEmail(hostEmail)) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly check the entered Email ID format.");
         }

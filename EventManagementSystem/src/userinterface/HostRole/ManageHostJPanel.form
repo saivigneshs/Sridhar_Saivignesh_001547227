@@ -36,11 +36,11 @@
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnViewCust" max="32767" attributes="0"/>
-                          <Component id="btnAddCust" max="32767" attributes="0"/>
+                          <Component id="btnViewHost" max="32767" attributes="0"/>
+                          <Component id="btnAddHost" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                      <Component id="btnDelCust" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDelHost" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="305" max="32767" attributes="0"/>
@@ -57,11 +57,11 @@
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAddCust" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDelCust" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAddHost" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDelHost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnViewCust" min="-2" max="-2" attributes="0"/>
+              <Component id="btnViewHost" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="84" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -79,7 +79,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Customers Database"/>
+        <Property name="text" type="java.lang.String" value="Hosts Database"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -89,7 +89,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="JTblCustomers">
+        <Component class="javax.swing.JTable" name="JTblHosts">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="cc" type="rgb"/>
@@ -102,7 +102,7 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="7" rowCount="4">
-                <Column editable="false" title="Customer No" type="java.lang.Object"/>
+                <Column editable="false" title="Host No" type="java.lang.Object"/>
                 <Column editable="false" title="Username" type="java.lang.Object"/>
                 <Column editable="false" title="Name" type="java.lang.Object"/>
                 <Column editable="false" title="Contact No" type="java.lang.Object"/>
@@ -157,7 +157,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnViewCust">
+    <Component class="javax.swing.JButton" name="btnViewHost">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="cc" type="rgb"/>
@@ -168,13 +168,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View Customer"/>
+        <Property name="text" type="java.lang.String" value="View Host"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewCustActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewHostActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnDelCust">
+    <Component class="javax.swing.JButton" name="btnDelHost">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="cc" type="rgb"/>
@@ -185,13 +185,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Delete Customer"/>
+        <Property name="text" type="java.lang.String" value="Delete Host"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelCustActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelHostActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAddCust">
+    <Component class="javax.swing.JButton" name="btnAddHost">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="cc" type="rgb"/>
@@ -202,10 +202,10 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Customer"/>
+        <Property name="text" type="java.lang.String" value="Add Host"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddCustActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddHostActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">

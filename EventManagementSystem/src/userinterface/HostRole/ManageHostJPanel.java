@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.HostRole;
 
-import Business.Customer.Customer;
-import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
+import Business.Host.Host;
+import Business.Host.HostDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -18,35 +18,33 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class ManageCustomersJPanel extends javax.swing.JPanel {
-    public CustomerDirectory custDirectory;
+public class ManageHostJPanel extends javax.swing.JPanel {
+    public HostDirectory hostDirectory;
     public JPanel container;
     public EcoSystem system;
-    /**
-     * Creates new form UpdateCustomersJPanel
-     */
-    public ManageCustomersJPanel(JPanel userProcessContainer, EcoSystem system, CustomerDirectory custDirectory) {
+    
+    public ManageHostJPanel(JPanel userProcessContainer, EcoSystem system, HostDirectory hostDirectory) {
         initComponents();
         this.system = system;
-        this.custDirectory = custDirectory;
+        this.hostDirectory = hostDirectory;
         this.container = userProcessContainer;
-        populateCustomerListTable();
+        populateHostListTable();
     }
     
-    public void populateCustomerListTable() {
-        DefaultTableModel model = (DefaultTableModel) JTblCustomers.getModel();
+    public void populateHostListTable() {
+        DefaultTableModel model = (DefaultTableModel) JTblHosts.getModel();
         model.setRowCount(0);
         for (UserAccount userAcc : system.getUserAccountDirectory().getUserAccountList()) {
-            for (Customer customer : custDirectory.getCustDir()) {
-                if (customer.getCustID().equalsIgnoreCase(userAcc.getEmployee().getName())) {
+            for (Host host : hostDirectory.getHostDir()) {
+                if (host.getHostID().equalsIgnoreCase(userAcc.getEmployee().getName())) {
                     Object[] row = new Object[7];
-                    row[0] = customer.getCustID();
+                    row[0] = host.getHostID();
                     row[1] = userAcc.getUsername();
-                    row[2] = customer.getCustName();
-                    row[3] = customer.getCustContact();
-                    row[4] = customer.getCustEmail();
-                    row[5] = customer.getCustAddr();
-                    row[6] = customer.getCustZipCode();
+                    row[2] = host.getHostName();
+                    row[3] = host.getHostContact();
+                    row[4] = host.getHostEmail();
+                    row[5] = host.getHostAddr();
+                    row[6] = host.getHostZipCode();
                     model.addRow(row);
                 }
             }
@@ -64,10 +62,10 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTblCustomers = new javax.swing.JTable();
-        btnViewCust = new javax.swing.JButton();
-        btnDelCust = new javax.swing.JButton();
-        btnAddCust = new javax.swing.JButton();
+        JTblHosts = new javax.swing.JTable();
+        btnViewHost = new javax.swing.JButton();
+        btnDelHost = new javax.swing.JButton();
+        btnAddHost = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
@@ -75,12 +73,12 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel1.setText("Customers Database");
+        jLabel1.setText("Hosts Database");
 
-        JTblCustomers.setBackground(new java.awt.Color(204, 255, 255));
-        JTblCustomers.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        JTblCustomers.setForeground(new java.awt.Color(0, 51, 51));
-        JTblCustomers.setModel(new javax.swing.table.DefaultTableModel(
+        JTblHosts.setBackground(new java.awt.Color(204, 255, 255));
+        JTblHosts.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        JTblHosts.setForeground(new java.awt.Color(0, 51, 51));
+        JTblHosts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -88,7 +86,7 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Customer No", "Username", "Name", "Contact No", "Email", "Street Address", "Zipcode"
+                "Host No", "Username", "Name", "Contact No", "Email", "Street Address", "Zipcode"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -99,35 +97,35 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(JTblCustomers);
+        jScrollPane1.setViewportView(JTblHosts);
 
-        btnViewCust.setBackground(new java.awt.Color(204, 255, 255));
-        btnViewCust.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnViewCust.setForeground(new java.awt.Color(0, 51, 51));
-        btnViewCust.setText("View Customer");
-        btnViewCust.addActionListener(new java.awt.event.ActionListener() {
+        btnViewHost.setBackground(new java.awt.Color(204, 255, 255));
+        btnViewHost.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnViewHost.setForeground(new java.awt.Color(0, 51, 51));
+        btnViewHost.setText("View Host");
+        btnViewHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewCustActionPerformed(evt);
+                btnViewHostActionPerformed(evt);
             }
         });
 
-        btnDelCust.setBackground(new java.awt.Color(204, 255, 255));
-        btnDelCust.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnDelCust.setForeground(new java.awt.Color(0, 51, 51));
-        btnDelCust.setText("Delete Customer");
-        btnDelCust.addActionListener(new java.awt.event.ActionListener() {
+        btnDelHost.setBackground(new java.awt.Color(204, 255, 255));
+        btnDelHost.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnDelHost.setForeground(new java.awt.Color(0, 51, 51));
+        btnDelHost.setText("Delete Host");
+        btnDelHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelCustActionPerformed(evt);
+                btnDelHostActionPerformed(evt);
             }
         });
 
-        btnAddCust.setBackground(new java.awt.Color(204, 255, 255));
-        btnAddCust.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnAddCust.setForeground(new java.awt.Color(0, 51, 51));
-        btnAddCust.setText("Add Customer");
-        btnAddCust.addActionListener(new java.awt.event.ActionListener() {
+        btnAddHost.setBackground(new java.awt.Color(204, 255, 255));
+        btnAddHost.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnAddHost.setForeground(new java.awt.Color(0, 51, 51));
+        btnAddHost.setText("Add Host");
+        btnAddHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddCustActionPerformed(evt);
+                btnAddHostActionPerformed(evt);
             }
         });
 
@@ -158,10 +156,10 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                         .addComponent(btnBack)
                         .addGap(127, 127, 127)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnViewCust, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddCust, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnViewHost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddHost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(98, 98, 98)
-                        .addComponent(btnDelCust)))
+                        .addComponent(btnDelHost)))
                 .addContainerGap(305, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -174,56 +172,56 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
-                    .addComponent(btnAddCust)
-                    .addComponent(btnDelCust))
+                    .addComponent(btnAddHost)
+                    .addComponent(btnDelHost))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnViewCust)
+                .addComponent(btnViewHost)
                 .addContainerGap(84, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnViewCustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCustActionPerformed
+    private void btnViewHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHostActionPerformed
         // TODO add your handling code here:
-        int selectedRow = JTblCustomers.getSelectedRow();
-        int count = JTblCustomers.getSelectedRowCount();
+        int selectedRow = JTblHosts.getSelectedRow();
+        int count = JTblHosts.getSelectedRowCount();
         if (count == 1) {
             if (selectedRow >= 0) {
                 CardLayout layout = (CardLayout) container.getLayout();
-                Customer customer = custDirectory.getCustomerId(selectedRow);
-                ViewUpdateCustomerJPanel viewUpdateCustomerJPanel = new ViewUpdateCustomerJPanel(system, container, customer, custDirectory);
-                container.add(viewUpdateCustomerJPanel);
+                Host host = hostDirectory.getHostId(selectedRow);
+                ViewUpdateHostJPanel viewUpdateHostJPanel = new ViewUpdateHostJPanel(system, container, host, hostDirectory);
+                container.add(viewUpdateHostJPanel);
                 layout.next(container); 
             }
         } else {
             JOptionPane.showMessageDialog(null, "Select a Row to continue.");
         }
-    }//GEN-LAST:event_btnViewCustActionPerformed
+    }//GEN-LAST:event_btnViewHostActionPerformed
 
-    private void btnDelCustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelCustActionPerformed
+    private void btnDelHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelHostActionPerformed
         // TODO add your handling code here:
-        int selectedRow = JTblCustomers.getSelectedRow();
-        int count = JTblCustomers.getSelectedRowCount();
+        int selectedRow = JTblHosts.getSelectedRow();
+        int count = JTblHosts.getSelectedRowCount();
         if (count == 1) {
             if (selectedRow >= 0) {
                 int selectionButton = JOptionPane.YES_NO_OPTION;
                 int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
                 if (selectionResult == JOptionPane.YES_OPTION) {
-                    custDirectory.deleteCustomer(selectedRow, system);
-                    populateCustomerListTable();
+                    hostDirectory.deleteHost(selectedRow, system);
+                    populateHostListTable();
                 }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Select a Row to continue.");
         }
-    }//GEN-LAST:event_btnDelCustActionPerformed
+    }//GEN-LAST:event_btnDelHostActionPerformed
 
-    private void btnAddCustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustActionPerformed
+    private void btnAddHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHostActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) container.getLayout();
-        AddCustomerJPanel createCustomersJPanel = new AddCustomerJPanel(container, system, custDirectory);
-        container.add(createCustomersJPanel);
+        AddHostJPanel createHostsJPanel = new AddHostJPanel(container, system, hostDirectory);
+        container.add(createHostsJPanel);
         layout.next(container);
-    }//GEN-LAST:event_btnAddCustActionPerformed
+    }//GEN-LAST:event_btnAddHostActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -234,11 +232,11 @@ public class ManageCustomersJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JTblCustomers;
-    private javax.swing.JButton btnAddCust;
+    private javax.swing.JTable JTblHosts;
+    private javax.swing.JButton btnAddHost;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDelCust;
-    private javax.swing.JButton btnViewCust;
+    private javax.swing.JButton btnDelHost;
+    private javax.swing.JButton btnViewHost;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

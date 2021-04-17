@@ -6,15 +6,16 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.DeliveryMan.DeliveryMan;
-import Business.DeliveryMan.DeliveryManDirectory;
+import Business.DeliveryMan.DeliverManDirectory;
 import Business.EcoSystem;
-import Business.Order.Menu;
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
+import Business.Organization.OrganizationDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Menu;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -31,10 +32,10 @@ public class RestOrderJPanel extends javax.swing.JPanel {
     private final JPanel userProcessContainer;
     private final UserAccount account;
     private final EcoSystem business;
-    private final DeliveryManDirectory deliveryManDirectory;
+    private final DeliverManDirectory deliveryManDirectory;
     private final OrderDirectory orderDirectory;
     private final Menu menuDirectory;
-    public RestOrderJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
+    public RestOrderJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, OrganizationDirectory organizationDirectory, DeliverManDirectory deliveryManDirectory, Menu menuDirectory, OrderDirectory orderDirectory) {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.business = business;
@@ -46,6 +47,10 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         populateDeliveryManDetailsTable();
     }
 
+    RestOrderJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, RestaurantDirectory restaurantDirectory, DeliverManDirectory deliveryManDirectory, Business.Order.Menu menuDirectory, OrderDirectory orderDirectory) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +60,7 @@ public class RestOrderJPanel extends javax.swing.JPanel {
         public void populateOrderListTable() {
         DefaultTableModel model = (DefaultTableModel) tblOrderList.getModel();
         model.setRowCount(0);
-        for (Order order : orderDirectory.getOrderDir()) {
+        for (Order order : orderDirectory.getOrderDir()){
             if (order.getRestaurant().getRestNo().equalsIgnoreCase(account.getEmployee().getName())) {
                 Object[] row = new Object[10];
                 row[0] = order.getOrderNo();

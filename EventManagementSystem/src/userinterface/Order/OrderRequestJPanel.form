@@ -103,7 +103,7 @@
                 <Column editable="false" title="Total Cost" type="java.lang.Object"/>
                 <Column editable="false" title="Delivery Man" type="java.lang.String"/>
                 <Column editable="false" title="DeliveryMan Message" type="java.lang.String"/>
-                <Column editable="false" title="Customer Feedback" type="java.lang.String"/>
+                <Column editable="false" title="Host Feedback" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
